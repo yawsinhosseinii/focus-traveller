@@ -6,7 +6,7 @@
 <title>جنگل تمرکز</title>
 <meta name="theme-color" content="#02040a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="جنگل تمرکز"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#02040a;--bg2:#0a1220;--pn:rgba(8, 14, 28, .74);--bd:rgba(140, 180, 255, .16);--tx:#f1ece2;--mu:#9aa6b8;--ac:#5b9dff;--ac2:#2d63e6;--sun:#5b9dff;--dn:#ff5a4a;--tr:rgba(140, 180, 255, .09);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 :root[data-theme="dark"]{--bg:#0b1a15;--bg2:#0f2a21;--pn:rgba(24,56,45,.62);--bd:rgba(150,255,200,.12);--tx:#e6f6ec;--mu:#8fb5a1;--ac:#5fe39a;--ac2:#2fb877;--sun:#ffc857;--dn:#ff7a66;--tr:rgba(150,255,200,.09)}
@@ -61,9 +61,9 @@ input[type=range]{width:min(320px,80%);accent-color:var(--ac);padding:0}
 nav{position:fixed;bottom:0;top:auto;left:0;right:0;height:auto;flex-direction:row;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));background:var(--pn);backdrop-filter:blur(18px);border-top:1px solid var(--bd);z-index:20;justify-content:space-around}
 nav button{flex-direction:column;gap:2px;font-size:11px;padding:8px 10px}.logo,.coin,nav .sp{display:none}main{padding-bottom:100px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
-html:root:root:not([data-theme="light"]){--bg:#02040a;--bg2:#0a1220;--pn:rgba(12,18,32,.6);--bd:rgba(140,180,255,.16);--tx:#f1ece2;--mu:#9aa6b8;--ac:#5b9dff;--ac2:#2d63e6;--sun:#ffa45c;--dn:#ff5a4a;--tr:rgba(140,180,255,.09)}
-html:not([data-theme="light"]) body{background:#02040a}
-html[data-theme="light"] #sp{display:none}
+html:root:root{--bg:#02040a;--bg2:#0a1220;--pn:rgba(12,18,32,.6);--bd:rgba(140,180,255,.16);--tx:#f1ece2;--mu:#9aa6b8;--ac:#5b9dff;--ac2:#2d63e6;--sun:#ffa45c;--dn:#ff5a4a;--tr:rgba(140,180,255,.09)}
+body{background:#02040a}
+
 #sp{position:fixed;inset:0;width:100%;height:100%;z-index:0}
 .app{position:relative;z-index:1}
 .card,.stat,.coin{box-shadow:0 20px 60px -30px #000,inset 0 1px 0 rgba(255,255,255,.07)}
@@ -100,7 +100,7 @@ html:root:root{--ok:#4fd17f}
 .gth{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}.gth img{width:100%;height:80px;object-fit:cover;border-radius:12px;cursor:pointer}
 textarea{resize:vertical}
 .card,.stat,.coin,nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
-html:root:root:not([data-theme="light"]){--pn:rgba(8,14,28,.74)}
+html:root:root{--pn:rgba(8,14,28,.74)}
 
 main{animation:up .5s ease both}@keyframes up{from{opacity:0;transform:translateY(10px)}}
 .card{background:linear-gradient(180deg,rgba(20,30,54,.72),rgba(8,14,28,.72));border:1px solid rgba(140,180,255,.14);transition:.25s}.card:hover{border-color:rgba(140,180,255,.3)}
@@ -125,20 +125,28 @@ nav button.on,.seg .on{background:linear-gradient(135deg,#5b9dff,#2d63e6);color:
 @media(max-width:420px){.tile{width:64px;height:66px;border-radius:18px}.tile b{font-size:26px}.tiles{gap:7px}}
 .toast{color:#fff}.logo{text-shadow:0 0 22px rgba(91,157,255,.5)}h2{font-weight:300}nav button.on{box-shadow:0 0 28px -6px #4d8dff}
 
-/* ===== v5 ui ===== */
-html[data-theme=light]{--bg:#f3f6ff;--bg2:#dbe7ff;--pn:rgba(255,255,255,.9);--bd:rgba(70,100,210,.14);--tx:#14213d;--mu:#5d6b8a;--ac:#4f7cff;--ac2:#7a5cff;--sun:#e8772e;--dn:#d94a3d;--ok:#1fa866;--tr:rgba(79,124,255,.09)}
-html[data-theme=light] body{background:radial-gradient(900px 520px at 85% -10%,#cfe0ff,transparent),radial-gradient(700px 520px at 0% 110%,#ffe2f0,transparent),#f3f6ff!important}
-html[data-theme=light] .card,html[data-theme=light] .stat,html[data-theme=light] .coin{background:rgba(255,255,255,.92);border-color:rgba(70,100,210,.14);box-shadow:0 16px 40px -24px rgba(60,90,200,.45)}
-html[data-theme=light] .stat b,html[data-theme=light] h2{background:linear-gradient(90deg,#1b2b5c,#4f7cff 70%,#e8772e);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none}
-html[data-theme=light] .tile{background:#fff;box-shadow:0 8px 20px -10px rgba(60,90,200,.4)}html[data-theme=light] .cl{color:#5d6b8a}
-html[data-theme=light] nav button.on,html[data-theme=light] .btn,html[data-theme=light] .seg .on{background:linear-gradient(135deg,#5b8cff,#7a5cff);color:#fff;box-shadow:0 10px 24px -10px #5b8cff}
-html[data-theme=light] .toast{background:#14213d;color:#fff}
-html[data-theme=light] input,html[data-theme=light] select,html[data-theme=light] textarea{background:#fff}
-.card{border-radius:24px}.li img{box-shadow:0 8px 18px -8px #000}
-.bd{display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;margin-inline-start:6px;background:rgba(79,209,127,.18);color:#4fd17f;font-weight:800}.bd.p{background:rgba(255,164,92,.18);color:#ffa45c}
+/* ===== v6 ui ===== */
+html:root:root{--bg:#04050e;--bg2:#14123f;--pn:rgba(16,18,42,.62);--bd:rgba(150,160,255,.16);--tx:#eef0ff;--mu:#a3a9d1;--ac:#8b7bff;--ac2:#5b6cff;--sun:#ffb26b;--ok:#4fe0a0;--tr:rgba(150,160,255,.09)}
+html:root body{font-family:Vazirmatn,Tahoma,sans-serif;color:var(--tx);background:radial-gradient(900px 520px at 90% -10%,rgba(91,108,255,.18),transparent),radial-gradient(700px 520px at 0% 110%,rgba(155,123,255,.14),transparent),#04050e}
+html:root h2{font-weight:800;font-size:28px;background:linear-gradient(90deg,#fff,#c3ccff 55%,#ffcf9f);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none}
+html:root .card{background:linear-gradient(160deg,rgba(44,48,104,.5),rgba(14,16,40,.62));border:1px solid rgba(150,160,255,.16);border-radius:26px;box-shadow:0 26px 60px -32px #000,inset 0 1px 0 rgba(255,255,255,.08)}
+html:root .stat{background:linear-gradient(160deg,rgba(44,48,104,.45),rgba(14,16,40,.55));border:1px solid rgba(150,160,255,.14);border-radius:20px}
+html:root .stat b{font-weight:800;background:linear-gradient(90deg,#fff,#b9c6ff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+html:root nav button.on,html:root .btn,html:root .seg .on{background:linear-gradient(135deg,#7aa2ff,#9b7bff);color:#fff;box-shadow:0 12px 28px -12px #8b7bff}
+html:root .chip.on{border-color:#9b8bff;color:#d6ceff;background:rgba(155,139,255,.16)}
+html:root input,html:root select,html:root textarea{border-radius:14px}
+nav{overflow-y:auto;overflow-x:hidden;scrollbar-width:none;-ms-overflow-style:none}nav::-webkit-scrollbar{display:none}
+nav button{font-weight:500;transition:.2s}nav button span{font-size:18px;margin-inline-end:4px}
+@media(max-width:760px){nav{overflow-x:auto;overflow-y:hidden;scroll-snap-type:x proximity}nav button{flex:none;scroll-snap-align:center}}
+html[data-theme=light] .card:not([style*="background:none"]),html[data-theme=light] .stat,html[data-theme=light] .coin{--tx:#16224a;--mu:#5d6b8f;--tr:rgba(79,110,255,.09);--bd:rgba(70,100,210,.16);color:var(--tx);background:linear-gradient(160deg,rgba(255,255,255,.96),rgba(236,242,255,.92));border-color:rgba(255,255,255,.7);box-shadow:0 24px 50px -26px rgba(0,0,0,.7)}
+html[data-theme=light] .stat b{background:linear-gradient(90deg,#16224a,#5b6cff);-webkit-background-clip:text;background-clip:text}
+html[data-theme=light] .card input,html[data-theme=light] .card select,html[data-theme=light] .card textarea{background:#fff;color:#16224a}
+.bd{display:inline-block;font-size:10px;padding:2px 8px;border-radius:99px;margin-inline-start:6px;background:rgba(79,209,127,.18);color:#4fd17f;font-weight:800}
 .gi{display:flex;align-items:center;gap:10px;padding:11px 12px;border-radius:16px;background:var(--tr);margin-bottom:8px;transition:.2s}.gi.d span{text-decoration:line-through;opacity:.5}.gi input{width:22px;height:22px;accent-color:var(--ok)}.gi span{flex:1}
 .yt{width:100%;aspect-ratio:16/9;border:0;border-radius:20px;background:#000}
 .ans{line-height:2;white-space:pre-wrap}
+#scw{position:fixed;right:12px;bottom:88px;width:min(360px,92vw);height:166px;z-index:31;border-radius:18px;overflow:hidden;box-shadow:0 14px 40px rgba(0,0,0,.6);display:none}#scw iframe{width:100%;height:100%;border:0}
+@media(min-width:761px){#scw{bottom:16px}}
 </style>
 </head>
 <body>
@@ -359,7 +367,7 @@ function rs(){const d=Math.min(devicePixelRatio||1,(navigator.hardwareConcurrenc
 rs();
 const N=innerWidth<600||(navigator.hardwareConcurrency||4)<=4?36:90;
 for(let i=0;i<N;i++){const u=i/(N-1);or.push({r:1.1+Math.pow(u,1.45)*3.9,w:.7+Math.random()*2.2,d:[40+Math.random()*200,12+Math.random()*100],o:Math.random()*600,a:.25+Math.random()*.55})}
-function loop(){if(document.hidden||document.documentElement.dataset.theme=='light'){if(!RM)setTimeout(loop,300);return}if(innerWidth!==w||innerHeight!==h)rs();t+=.016;wp+=((S.T?5:1)-wp)*.04;
+function loop(){if(document.hidden){if(!RM)setTimeout(loop,300);return}if(innerWidth!==w||innerHeight!==h)rs();t+=.016;wp+=((S.T?5:1)-wp)*.04;
 const el=tab=='timer'&&document.querySelector('.ringw');let tx=w/2,ty=Math.min(h*.28,240),ts=Math.min(w,h)*.55;if(el){const r=el.getBoundingClientRect();tx=r.left+r.width/2;ty=r.top+r.height/2;ts=r.width}
 cx+=(tx-cx)*.35;cy+=(ty-cy)*.35;sc+=(ts-sc)*.35;const R=sc*.30,s=R/120;
 x.globalCompositeOperation='source-over';x.globalAlpha=1;x.fillStyle='#02040a';x.fillRect(0,0,w,h);
@@ -471,45 +479,26 @@ const t=c.currentTime+.05,Q=[[523.25,659.25,783.99,1046.5,783.99,1046.5,1318.5],
 for(let r=0;r<2;r++)s.forEach((f,i)=>bell(c,m,f,t+r*(s.length*gp+.8)+i*gp,2.4,.22));
 try{navigator.vibrate&&navigator.vibrate([300,150,300,150,500])}catch(e){}}
 function beep(){playAlarm(S.al&&S.al.k||0,S.al&&S.al.v)}
-/* ===== music ===== */
-const GEN=[['rain','🌧','باران'],['ocean','🌊','دریا'],['brown','🟤','نویز قهوه‌ای'],['pad','🌌','پد فضایی'],['wind','💨','باد']];
-const GENRES=[['بی‌کلام سینمایی',['Hans Zimmer','Ludovico Einaudi','Max Richter','Ólafur Arnalds','Jóhann Jóhannsson','Two Steps From Hell']],['پیانو و آرام',['Yiruma','Joe Hisaishi','Chopin','Debussy','Satie','Kevin Kern']],['کلاسیک',['Mozart','Beethoven','Bach','Vivaldi','Tchaikovsky','Rachmaninoff']],['لوفای و چیل',['lofi hip hop','Nujabes','Jinsang','Tycho','Bonobo','Emancipator']],['جز',['Miles Davis','Bill Evans','John Coltrane','Chet Baker','Norah Jones','Dave Brubeck']],['الکترونیک',['Daft Punk','Kygo','Avicii','Jean-Michel Jarre','Vangelis','Eric Prydz']],['پاپ',['Ed Sheeran','Adele','Coldplay','Dua Lipa','The Weeknd','Imagine Dragons']],['راک',['Linkin Park','Pink Floyd','Queen','Radiohead','Muse','U2']],['رپ و هیپ‌هاپ',['Eminem','Kendrick Lamar','Drake','Nas','J. Cole','Travis Scott']],['ایرانی',['Mohsen Chavoshi','Shajarian','Googoosh','Hayedeh','Kamkars','Kayhan Kalhor']],['ترکی و آذری',['Tarkan','Sezen Aksu','Ahmet Kaya','Kenan Doğulu','Sertab Erener','Mabel Matiz']]];
-const MU={list:[],i:-1,au:new Audio(),amb:null,vol:.7,q:'',cnt:'',last:'',ak:'',busy:false};
-MU.au.volume=.7;MU.au.onended=()=>mNext();['play','pause'].forEach(e=>MU.au.addEventListener(e,()=>upd()));
-MU.stop=()=>{try{MU.au.pause()}catch(e){}ambStop();upd()};
-MU.resume=()=>{if(MU.last=='amb'&&MU.ak)ambStart(MU.ak);else if(MU.i>=0)MU.au.play().catch(()=>{})};
-function mvol(v){MU.vol=v;MU.au.volume=v;if(MU.amb)MU.amb.g.gain.value=v}
-function noiseBuf(c,type){const n=c.sampleRate*4,b=c.createBuffer(1,n,c.sampleRate),d=b.getChannelData(0);let l=0;for(let i=0;i<n;i++){const w=Math.random()*2-1;if(type=='brown'){l=(l+.02*w)/1.02;d[i]=l*3.5}else d[i]=w}return b}
-function ambStop(){if(MU.amb){MU.amb.nodes.forEach(n=>{try{n.stop&&n.stop()}catch(e){}try{n.disconnect()}catch(e){}});MU.amb=null}}
-function ambStart(k){const c=ac();if(!c)return;ambStop();try{MU.au.pause()}catch(e){}const g=c.createGain();g.gain.value=MU.vol;g.connect(c.destination);const nodes=[g],src=t=>{const s=c.createBufferSource();s.buffer=noiseBuf(c,t);s.loop=true;nodes.push(s);return s},fl=(t,f,q)=>{const x=c.createBiquadFilter();x.type=t;x.frequency.value=f;if(q)x.Q.value=q;nodes.push(x);return x},gn=v=>{const x=c.createGain();x.gain.value=v;nodes.push(x);return x},lfo=(fr,am,tg)=>{const o=c.createOscillator(),a=gn(am);o.frequency.value=fr;o.connect(a);a.connect(tg);o.start();nodes.push(o)};
-if(k=='rain'){const s=src('w'),a=fl('highpass',1200),b=fl('lowpass',9000),x=gn(.35);s.connect(a);a.connect(b);b.connect(x);x.connect(g);s.start()}
-else if(k=='ocean'){const s=src('brown'),a=fl('lowpass',700),x=gn(.5);lfo(.09,.35,x.gain);s.connect(a);a.connect(x);x.connect(g);s.start()}
-else if(k=='brown'){const s=src('brown'),x=gn(.6);s.connect(x);x.connect(g);s.start()}
-else if(k=='wind'){const s=src('w'),a=fl('bandpass',500,.6),x=gn(.5);lfo(.12,300,a.frequency);s.connect(a);a.connect(x);x.connect(g);s.start()}
-else{[55,82.4,110,164.8,220].forEach((fq,i)=>[-4,4].forEach(dt=>{const o=c.createOscillator(),og=gn(.05/(1+i*.4));o.type=i%2?'sine':'triangle';o.frequency.value=fq;o.detune.value=dt;lfo(.05+i*.02,.03,og.gain);o.connect(og);og.connect(g);o.start();nodes.push(o)}))}
-MU.amb={k,nodes,g};MU.last='amb';MU.ak=k;upd();if(tab=='music')render()}
-async function itu(q,n){const r=await fetch('https://itunes.apple.com/search?media=music&entity=song&limit='+n+'&term='+encodeURIComponent(q));const j=await r.json();return(j.results||[]).filter(x=>x.previewUrl).map(x=>({id:x.trackId,n:x.trackName,a:x.artistName,img:(x.artworkUrl100||'').replace('100x100','200x200'),p:x.previewUrl,u:x.trackViewUrl}))}
-async function mSearch(){const q=(MU.q||'').trim();if(!q)return;MU.busy=true;MU.cnt='';render();try{MU.list=await both(q);MU.cnt='نتیجه برای «'+q+'»: '+f(MU.list.length)+' آهنگ'}catch(e){MU.list=[];MU.cnt='جستجو ناموفق بود؛ اینترنت یا فیلترشکن را بررسی کن.'}MU.busy=false;MU.i=-1;render()}
-async function mGenre(gi){const g=GENRES[gi];MU.busy=true;MU.cnt='';render();try{const rs=await Promise.all(g[1].map(a=>itu(a,8).catch(()=>[]))),seen={};MU.list=rs.flat().filter(x=>!seen[x.id]&&(seen[x.id]=1));for(let i=MU.list.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[MU.list[i],MU.list[j]]=[MU.list[j],MU.list[i]]}MU.cnt='ژانر '+g[0]+': '+f(MU.list.length)+' آهنگ'}catch(e){MU.list=[];MU.cnt='دریافت ناموفق بود؛ اینترنت یا فیلترشکن را بررسی کن.'}MU.busy=false;MU.i=-1;render()}
-function mPlay(i){const t=MU.list[i];if(!t)return;ambStop();MU.i=i;MU.last='trk';MU.au.preload='auto';MU.au.src=t.p;MU.au.volume=MU.vol;MU.au.play().catch(()=>toast('پخش نشد؛ دوباره بزن'));upd();if(tab=='music')render()}
-const AU='https://api.audius.co/v1/';
-async function aud(q,n){const r=await fetch(AU+'tracks/search?limit='+n+'&app_name=forestfa&query='+encodeURIComponent(q));const j=await r.json();return(j.data||[]).filter(x=>x.is_streamable!==false).map(x=>({id:'a'+x.id,n:x.title,a:(x.user||{}).name||'',img:(x.artwork||{})['150x150']||'icon-192.png',p:AU+'tracks/'+x.id+'/stream?app_name=forestfa',u:'https://audius.co'+(x.permalink||''),f:1}))}
-async function both(q){const r=await Promise.allSettled([aud(q,25),itu(q,25)]);const a=r[0].value||[],b=r[1].value||[];if(!a.length&&!b.length)throw 0;return a.concat(b)}
-function mNext(){if(MU.list.length)mPlay((MU.i+1)%MU.list.length)}
-function mPrev(){if(MU.list.length)mPlay((MU.i-1+MU.list.length)%MU.list.length)}
-function mToggle(){if(MU.amb)ambStop();else if(MU.au.paused)MU.au.play().catch(()=>{});else MU.au.pause();upd();if(tab=='music')render()}
-function lyr(w){const q=($('#ml')||{}).value;if(!q||!q.trim())return;window.open(w=='g'?'https://www.google.com/search?q='+encodeURIComponent(q+' lyrics'):'https://genius.com/search?q='+encodeURIComponent(q),'_blank','noopener')}
-document.body.insertAdjacentHTML('beforeend','<div id="mini"></div>');
-function upd(){const m=$('#mini');if(!m)return;const t=MU.list[MU.i],on=MU.amb||(MU.i>=0&&MU.last=='trk');if(!on){m.style.display='none';return}const play=MU.amb?true:!MU.au.paused;m.style.display='flex';m.innerHTML=`<div class="mt"><b>${MU.amb?esc(GEN.find(g=>g[0]==MU.amb.k)[2]):esc(t?t.n:'')}</b><span class="mu">${MU.amb?'صدای محیطی':esc(t?t.a:'')}</span></div><button class="x" onclick="mPrev()" ${MU.amb?'disabled':''}>⏮</button><button class="x" onclick="mToggle()">${play?'⏸':'▶'}</button><button class="x" onclick="mNext()" ${MU.amb?'disabled':''}>⏭</button><input type="range" min="0" max="1" step=".05" value="${MU.vol}" oninput="mvol(+this.value)" style="width:70px;padding:0" aria-label="صدا">`}
-function vMusic(){const mu=S.mu||{},al=S.al||{};return `<h2>موسیقی و صدا</h2><p class="mu" style="line-height:1.9">آهنگ‌ها پیش‌نمایش رسمی ۳۰ ثانیه‌ای از iTunes هستند و پشت‌سرهم پخش می‌شوند؛ برای شنیدن کامل، دکمه ↗ را بزن. صداهای محیطی داخل خود برنامه ساخته می‌شوند و آفلاین هم کار می‌کنند.</p>
-<div class="card"><label class="row" style="justify-content:flex-start;cursor:pointer;text-align:right"><input type="checkbox" ${mu.auto?'checked':''} onchange="(S.mu=S.mu||{}).auto=this.checked;save()" style="accent-color:var(--ac);width:20px;height:20px"><span>با شروع تایمر، آخرین موسیقی یا صدا خودکار پخش شود و با پایان تایمر قطع شود</span></label></div>
-<div class="card"><h3>صداهای محیطی</h3><div class="chips">${GEN.map(g=>`<button class="chip ${MU.amb&&MU.amb.k==g[0]?'on':''}" onclick="ambStart('${g[0]}')">${g[1]} ${g[2]}</button>`).join('')}<button class="chip" onclick="MU.stop();render()">⏹ قطع</button></div></div>
-<div class="card"><h3>جستجوی خواننده یا آهنگ</h3><div class="row"><input id="mq" value="${esc(MU.q)}" oninput="MU.q=this.value" onkeydown="if(event.key=='Enter')mSearch()" placeholder="مثلا Hans Zimmer" style="flex:1;min-width:180px;direction:ltr"><button class="btn s" onclick="mSearch()">جستجو</button></div>
-<h3 style="margin-top:18px">پیدا کردن آهنگ از روی متن</h3><div class="row"><input id="ml" placeholder="چند کلمه از متن آهنگ" style="flex:1;min-width:180px"><button class="btn g s" onclick="lyr('g')">Google</button><button class="btn g s" onclick="lyr('n')">Genius</button></div><p class="mu">جستجوی متن از داخل برنامه ممکن نیست؛ با این دکمه‌ها اسم آهنگ را پیدا کن و بعد در کادر بالا بنویس.</p></div>
-<div class="card"><h3>ژانرها</h3><div class="chips">${GENRES.map((g,i)=>`<button class="chip" onclick="mGenre(${i})">${g[0]}</button>`).join('')}</div></div>
-${MU.busy?'<p class="mu">در حال دریافت...</p>':''}${MU.cnt?`<p class="mu">${esc(MU.cnt)}</p>`:''}
-<div class="card">${MU.list.map((t,i)=>`<div class="li"><img src="${esc(t.img)}" width="46" height="46" style="border-radius:10px;flex:none" loading="lazy" alt=""><div class="g" style="min-width:0"><b>${esc(t.n)}</b>${t.f?'<span class="bd">کامل</span>':'<span class="bd p">۳۰ ثانیه</span>'}<div class="mu">${esc(t.a)}</div></div><button class="x" onclick="${MU.i==i?'mToggle()':'mPlay('+i+')'}">${MU.i==i&&!MU.au.paused?'⏸':'▶'}</button><a class="x" href="${esc(t.u)}" target="_blank" rel="noopener">↗</a></div>`).join('')||'<p class="mu">یک ژانر یا خواننده را انتخاب کن.</p>'}</div>
-<div class="card"><h3>صدای هشدار پایان تایمر</h3><div class="chips">${ALK.map((n,i)=>`<button class="chip ${(al.k||0)==i?'on':''}" onclick="(S.al=S.al||{}).k=${i};save();playAlarm(${i},S.al.v);render()">🔔 ${n}</button>`).join('')}</div><div class="row"><span class="mu">بلندی</span><input type="range" min=".1" max="1" step=".05" value="${al.v||.6}" onchange="(S.al=S.al||{}).v=+this.value;save();beep()" style="width:200px;padding:0"></div></div>`}
+/* ===== music (SoundCloud) ===== */
+const MU={w:null,res:[],ri:-1,q:'',busy:false,cnt:'',vol:.7};
+MU.stop=()=>{try{MU.w&&MU.w.pause()}catch(e){}};
+MU.resume=()=>{try{MU.w&&MU.w.play()}catch(e){}};
+const scKey=()=>localStorage.getItem('forestsc')||'';
+document.body.insertAdjacentHTML('beforeend','<div id="scw"><iframe id="scf" allow="autoplay" title="SoundCloud"></iframe></div>');
+function scLoad(){return new Promise(r=>{if(window.SC&&SC.Widget)return r();const e=document.createElement('script');e.src='https://w.soundcloud.com/player/api.js';e.onload=()=>r();e.onerror=()=>r();document.head.appendChild(e);setTimeout(r,9000)})}
+async function scOpen(url,ri){await scLoad();if(!window.SC||!SC.Widget)return toast('اتصال به SoundCloud برقرار نشد؛ اینترنت یا فیلترشکن را بررسی کن');MU.ri=ri==null?-1:ri;const f=$('#scf');f.src='https://w.soundcloud.com/player/?url='+encodeURIComponent(url)+'&auto_play=true&hide_related=true&show_comments=false&show_teaser=false&visual=false&color=%238b7bff';$('#scw').style.display='block';const w=MU.w=SC.Widget(f);w.bind(SC.Widget.Events.READY,()=>{w.setVolume(MU.vol*100)});w.bind(SC.Widget.Events.FINISH,()=>{if(MU.ri>=0&&MU.ri+1<MU.res.length)scOpen(MU.res[MU.ri+1].u,MU.ri+1)})}
+const scDo=a=>{try{MU.w&&MU.w[a]()}catch(e){}};
+function scHide(){MU.stop();$('#scw').style.display='none'}
+function scVol(v){MU.vol=v;try{MU.w&&MU.w.setVolume(v*100)}catch(e){}}
+async function scSearch(){let q=(($('#mq')||{}).value||MU.q||'').trim();MU.q=q;if(!q)return;if(!scKey()){window.open('https://soundcloud.com/search?q='+encodeURIComponent(q),'_blank','noopener');return toast('برای جستجوی داخل برنامه، client_id لازم است؛ فعلاً جستجو در خود SoundCloud باز شد')}MU.busy=true;MU.cnt='';render();try{const r=await fetch('https://api.soundcloud.com/tracks?limit=30&q='+encodeURIComponent(q)+'&client_id='+encodeURIComponent(scKey()));if(!r.ok)throw 0;const j=await r.json();MU.res=(j||[]).filter(x=>x.permalink_url&&x.streamable!==false).map(x=>({n:x.title,a:(x.user||{}).username||'',img:x.artwork_url||(x.user||{}).avatar_url||'icon-192.png',u:x.permalink_url}));MU.cnt=f(MU.res.length)+' آهنگ برای «'+q+'»'}catch(e){MU.res=[];MU.cnt='جستجو ناموفق بود؛ client_id یا اینترنت را بررسی کن.'}MU.busy=false;render()}
+function scUser(){const m=String((S.sc||{}).u||'').match(/soundcloud\.com\/([^\/?#]+)/);return m?m[1]:''}
+function scGo(u){u=(u||'').trim();if(!u)return toast('لینک SoundCloud را بنویس');if(!/^https?:\/\//.test(u))u='https://soundcloud.com/'+u.replace(/^\/+/,'');S.sc=S.sc||{};S.sc.u=u;save();scOpen(u)}
+function vMusic(){const us=scUser(),u=(S.sc||{}).u||'';return `<h2>موسیقی</h2>
+<div class="card"><h3>حساب SoundCloud من</h3><p class="mu" style="line-height:1.9">لینک پروفایل، پلی‌لیست یا آهنگ را بگذار (مثلاً soundcloud.com/نام‌کاربری).</p><div class="row"><input id="mu" placeholder="https://soundcloud.com/..." value="${esc(u)}" style="flex:1;min-width:220px;direction:ltr"><button class="btn s" onclick="scGo($('#mu').value)">پخش</button></div>${us?`<div class="chips"><button class="chip" onclick="scGo('https://soundcloud.com/${esc(us)}/tracks')">🎵 آهنگ‌های من</button><button class="chip" onclick="scGo('https://soundcloud.com/${esc(us)}/likes')">❤️ لایک‌ها</button></div>`:''}</div>
+<div class="card"><h3>جستجو</h3><div class="row"><input id="mq" placeholder="نام خواننده یا آهنگ" value="${esc(MU.q)}" style="flex:1;min-width:200px" onkeydown="if(event.key=='Enter')scSearch()"><button class="btn s" onclick="scSearch()">جستجو</button></div>${MU.busy?'<p class="mu">در حال جستجو...</p>':''}${MU.cnt?`<p class="mu">${esc(MU.cnt)}</p>`:''}${MU.res.map((t,i)=>`<div class="li"><img src="${esc(t.img)}" width="46" height="46" style="border-radius:12px;flex:none;object-fit:cover" loading="lazy" alt=""><div class="g" style="min-width:0"><b>${esc(t.n)}</b><div class="mu">${esc(t.a)}</div></div><button class="x" onclick="scOpen(MU.res[${i}].u,${i})">▶</button></div>`).join('')}</div>
+<div class="card"><h3>کنترل پخش</h3><div class="row"><button class="x" onclick="scDo('prev')">⏮</button><button class="x" onclick="scDo('toggle')" style="width:48px;height:48px">⏯</button><button class="x" onclick="scDo('next')">⏭</button><button class="x" onclick="scHide()">⏹</button><input type="range" min="0" max="1" step=".05" value="${MU.vol}" oninput="scVol(+this.value)" style="width:120px;padding:0" aria-label="صدا"></div></div>
+<div class="card"><h3>کلید جستجو (اختیاری)</h3><p class="mu" style="line-height:1.9">برای نمایش نتیجه‌ی جستجو داخل همین صفحه، SoundCloud client_id لازم است. بدون آن، دکمه‌ی جستجو خود SoundCloud را باز می‌کند و لینک آهنگ را می‌توانی بالا بگذاری.</p><div class="row"><input id="sk2" placeholder="client_id" value="${esc(scKey())}" style="flex:1;direction:ltr;min-width:200px"><button class="btn s" onclick="localStorage.setItem('forestsc',$('#sk2').value.trim());toast('ذخیره شد')">ذخیره</button></div></div>`}
+function upd(){}
 /* ===== goal ===== */
 const GL=()=>S.gl=S.gl||{};let GR=[];
 const AF=[['برایان تریسی','من دقیقاً می‌دانم چه می‌خواهم و هدفم را روی کاغذ نوشته‌ام: {g}.'],['برایان تریسی','هر صبح اول از همه، مهم‌ترین و سخت‌ترین کار را انجام می‌دهم تا برای {g} جلو بیفتم.'],['برایان تریسی','هدفم تاریخ مشخص دارد و هر روز یک قدم عملی برای {g} برمی‌دارم.'],['برایان تریسی','از کارهایم آنهایی را انتخاب می‌کنم که بیشترین نتیجه را می‌سازند.'],['برایان تریسی','هر شب فهرست فردا را می‌نویسم و صبح بر اساس اولویت کار می‌کنم.'],['برایان تریسی','من مسئول زندگی خودم هستم و برای عقب انداختن {g} بهانه نمی‌آورم.'],['برایان تریسی','هر روز مهارتی را که به {g} نزدیکم می‌کند بهتر می‌کنم.'],['ناپلئون هیل','میل شدید و باور عمیق به {g} نقطه شروع هر دستاورد است.'],['ناپلئون هیل','من پافشاری می‌کنم؛ حتی وقتی راه سخت می‌شود، از مسیر برنمی‌گردم.'],['تونی رابینز','به جای بهانه، برنامه می‌سازم و همین حالا عمل می‌کنم.'],['تونی رابینز','انرژی‌ام را روی چیزی می‌گذارم که در کنترل من است.'],['جیم ران','نظم روزانه پل میان هدف و رسیدن به آن است.'],['جیم ران','امروز کاری می‌کنم که فردای من از آن سپاسگزار باشد.'],['زیگ زیگلار','برای شروع لازم نیست بی‌نقص باشم؛ فقط باید شروع کنم.'],['لس براون','اگر زمین بخورم بلند می‌شوم؛ شکست پایان راه نیست، تجربه است.'],['رابین شارما','ساعت اول صبحم را برای رشد خودم و {g} نگه می‌دارم.'],['کارول دوئک','هنوز بلد نیستم؛ با تمرین و تلاش یاد می‌گیرم.'],['جیمز کلیر','هر روز یک درصد بهتر می‌شوم و {g} هر روز نزدیک‌تر می‌شود.'],['مارکوس اورلیوس','کار پیش‌رویم را همین حالا و با تمام توجه انجام می‌دهم.'],['دیل کارنگی','به جای نگرانی از فردا، امروز را کامل زندگی می‌کنم.'],['گری کلر','امروز یک کار را انتخاب می‌کنم که انجامش بقیه را ساده یا بی‌نیاز کند.'],['وارن بافت','صبر و ثبات، ارزشمندترین دارایی من است.'],['استیو جابز','روی چیزهای مهم تمرکز می‌کنم و به حواس‌پرتی‌ها نه می‌گویم.'],['ویکتور فرانکل','برای کاری که می‌کنم دلیل دارم، و همین دلیل سختی‌ها را قابل تحمل می‌کند.'],['خودم','من توانایی رسیدن به {g} را دارم و هر روز به آن نزدیک‌ترم.'],['خودم','عادت‌های برنده را هر روز تکرار می‌کنم، حتی وقتی حوصله ندارم.'],['خودم','من لایق موفقیت هستم و برایش زحمت می‌کشم.'],['خودم','هر ساعتی که با تمرکز درس می‌خوانم، یک قدم به {g} نزدیک‌ترم.'],['خودم','امروز بهترین کارم را انجام می‌دهم، نه کامل‌ترین را.']];
@@ -568,6 +557,7 @@ async function askQ(){const q=$('#aq').value.trim();if(!q)return;$('#ab').textCo
 function ytId(u){const m=String(u).match(/(?:v=|youtu\.be\/|embed\/|shorts\/)([\w-]{11})/);return m?m[1]:(/^[\w-]{11}$/.test(u)?u:'')}
 function vYt(){const id=S.yt||'';return `<h2>یوتیوب</h2><div class="card"><div class="row"><input id="yu" placeholder="لینک ویدیو یا کلمه برای جستجو" value="" style="flex:1;min-width:220px" onkeydown="if(event.key==\'Enter\')ytGo()"><button class="btn" onclick="ytGo()">پخش</button></div></div>${id?`<div class="card"><iframe class="yt" src="https://www.youtube-nocookie.com/embed/${id}?hl=fa&cc_load_policy=1&cc_lang_pref=fa&rel=0" allow="accelerometer;autoplay;encrypted-media;picture-in-picture;fullscreen" allowfullscreen loading="lazy"></iframe><p class="mu" style="line-height:1.9">اگر ویدیو زیرنویس فارسی داشته باشد خودکار روشن می‌شود. برای ویدیوهای بدون زیرنویس، در پخش‌کننده ⚙️ ← Subtitles ← Auto-translate ← فارسی را بزن.</p></div>`:''}`}
 function ytGo(){const v=$('#yu').value.trim();if(!v)return;const id=ytId(v);if(id){S.yt=id;save();render()}else window.open('https://www.youtube.com/results?search_query='+encodeURIComponent(v),'_blank','noopener')}
+
 
 render();
 </script>
