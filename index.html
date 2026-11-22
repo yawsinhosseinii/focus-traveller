@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>جنگل تمرکز</title>
+<meta name="theme-color" content="#02040a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="جنگل تمرکز"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon-192.png"><link rel="apple-touch-icon" href="icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#e9f4ec;--bg2:#d4ead9;--pn:rgba(255,255,255,.72);--bd:rgba(20,70,45,.12);--tx:#12301f;--mu:#5b7a68;--ac:#1f9d5a;--ac2:#14724a;--sun:#e8a21b;--dn:#d4503f;--tr:rgba(20,70,45,.08);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1a15;--bg2:#0f2a21;--pn:rgba(24,56,45,.62);--bd:rgba(150,255,200,.12);--tx:#e6f6ec;--mu:#8fb5a1;--ac:#5fe39a;--ac2:#2fb877;--sun:#ffc857;--dn:#ff7a66;--tr:rgba(150,255,200,.09)}}
+:root[data-theme="dark"]{--bg:#0b1a15;--bg2:#0f2a21;--pn:rgba(24,56,45,.62);--bd:rgba(150,255,200,.12);--tx:#e6f6ec;--mu:#8fb5a1;--ac:#5fe39a;--ac2:#2fb877;--sun:#ffc857;--dn:#ff7a66;--tr:rgba(150,255,200,.09)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;font-family:Vazirmatn,Tahoma,sans-serif;color:var(--tx);background:radial-gradient(900px 500px at 85% -10%,var(--bg2),transparent),radial-gradient(700px 500px at 0% 110%,var(--bg2),transparent),var(--bg);background-attachment:fixed}
+.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh;max-width:1250px;margin:auto}
+nav{padding:24px 16px;position:sticky;top:0;height:100vh;display:flex;flex-direction:column;gap:6px}
+.logo{font-weight:800;font-size:22px;display:flex;gap:10px;align-items:center;margin-bottom:18px}
+.logo svg{width:36px;height:36px}
+nav button{all:unset;cursor:pointer;padding:12px 14px;border-radius:14px;color:var(--mu);font-weight:500;display:flex;gap:10px;align-items:center;transition:.2s}
+nav button:hover{background:var(--tr)}
+nav button.on{background:var(--ac);color:#06241a;font-weight:800;box-shadow:0 8px 24px -8px var(--ac)}
+nav .sp{flex:1}
+.coin{padding:12px 14px;border-radius:14px;background:var(--pn);border:1px solid var(--bd);font-size:14px}
+main{padding:24px 20px 60px;min-width:0}
+h2{margin:0 0 16px;font-size:24px;font-weight:800}h3{margin:0 0 12px;font-size:16px}
+.card{background:var(--pn);border:1px solid var(--bd);border-radius:22px;padding:20px;backdrop-filter:blur(14px);margin-bottom:16px}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:16px}
+.stat{background:var(--pn);border:1px solid var(--bd);border-radius:18px;padding:14px}
+.stat b{display:block;font-size:22px;font-weight:800}.stat span{color:var(--mu);font-size:13px}
+.ringw{position:relative;width:min(320px,80vw);aspect-ratio:1;margin:8px auto}
+.ringw svg.r{width:100%;height:100%;transform:rotate(-90deg)}
+.ringw .in{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ringw .in svg{width:55%;filter:drop-shadow(0 10px 18px rgba(0,0,0,.25))}
+.big{font-size:42px;font-weight:800;letter-spacing:1px;font-variant-numeric:tabular-nums}
+.btn{all:unset;cursor:pointer;padding:13px 28px;border-radius:16px;background:linear-gradient(135deg,var(--ac),var(--ac2));color:#05231a;font-weight:800;text-align:center;transition:.2s;box-shadow:0 10px 26px -10px var(--ac)}
+.btn:hover{transform:translateY(-2px)}.btn.g{background:var(--tr);color:var(--tx);box-shadow:none}.btn.d{background:var(--dn);color:#fff}.btn.s{padding:7px 12px;font-size:13px;border-radius:11px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:10px 0}
+.chip{all:unset;cursor:pointer;padding:7px 14px;border-radius:99px;background:var(--tr);font-size:14px;border:1px solid transparent}
+.chip.on{border-color:var(--ac);color:var(--ac);font-weight:800}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:center}
+input,select{font:inherit;color:var(--tx);background:var(--tr);border:1px solid var(--bd);border-radius:12px;padding:10px 12px;outline:none}
+input:focus,select:focus,button:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+input[type=range]{width:min(320px,80%);accent-color:var(--ac);padding:0}
+.bar{height:10px;border-radius:9px;background:var(--tr);overflow:hidden}.bar i{display:block;height:100%;border-radius:9px;background:linear-gradient(90deg,var(--ac),var(--sun));transition:width .6s}
+.chart{display:flex;align-items:flex-end;gap:4px;height:190px;padding-top:10px}
+.col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+.col i{width:100%;max-width:34px;border-radius:7px 7px 3px 3px;background:linear-gradient(180deg,var(--ac),var(--ac2));min-height:2px;transition:height .5s}
+.col small{font-size:10px;color:var(--mu);margin-top:4px;height:14px;white-space:nowrap}
+.seg{display:inline-flex;background:var(--tr);border-radius:14px;padding:4px;gap:2px}
+.seg button{all:unset;cursor:pointer;padding:8px 18px;border-radius:11px;font-weight:500}.seg .on{background:var(--ac);color:#05231a;font-weight:800}
+.li{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--bd)}.li:last-child{border:0}.li .g{flex:1}
+.dot{width:12px;height:12px;border-radius:50%;flex:none}
+.forest{display:grid;grid-template-columns:repeat(auto-fill,minmax(70px,1fr));gap:6px}
+.forest svg{width:100%;aspect-ratio:1}
+.mu{color:var(--mu);font-size:13px}.dead{opacity:.55}
+.done{text-decoration:line-through;opacity:.5}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ac);color:#05231a;padding:12px 22px;border-radius:14px;font-weight:800;z-index:50;box-shadow:0 10px 30px rgba(0,0,0,.3)}
+@media(max-width:760px){.app{grid-template-columns:1fr}
+nav{position:fixed;bottom:0;top:auto;left:0;right:0;height:auto;flex-direction:row;padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));background:var(--pn);backdrop-filter:blur(18px);border-top:1px solid var(--bd);z-index:20;justify-content:space-around}
+nav button{flex-direction:column;gap:2px;font-size:11px;padding:8px 10px}.logo,.coin,nav .sp{display:none}main{padding-bottom:100px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+html:root:root:not([data-theme="light"]){--bg:#02040a;--bg2:#0a1220;--pn:rgba(12,18,32,.6);--bd:rgba(255,205,140,.16);--tx:#f1ece2;--mu:#9aa6b8;--ac:#ffb454;--ac2:#e0701f;--sun:#ffe2a8;--dn:#ff5a4a;--tr:rgba(255,220,170,.08)}
+html:not([data-theme="light"]) body{background:#02040a}
+html[data-theme="light"] #sp{display:none}
+#sp{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.app{position:relative;z-index:1}
+.card,.stat,.coin{box-shadow:0 20px 60px -30px #000,inset 0 1px 0 rgba(255,255,255,.07)}
+h2{font-weight:300;font-size:30px;text-shadow:0 0 24px rgba(255,180,84,.4)}
+.logo{color:var(--sun)}
+nav button.on,.btn,.chip.on,.seg .on{color:#1a0d02}.chip.on{color:var(--sun)}
+nav button.on{box-shadow:0 0 30px -4px var(--ac)}
+.ringw{--p1:#7ad1ff;--p2:#134a7a}
+.ringw::before{content:'';position:absolute;inset:13%;border-radius:50%;background:radial-gradient(circle at 32% 28%,var(--p1),var(--p2) 58%,#000 100%);opacity:.55;box-shadow:0 0 70px -4px var(--p2)}
+.big{font-weight:300;font-size:50px;text-shadow:0 0 24px var(--ac)}
+.planets{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin:12px 0}
+.pl{all:unset;cursor:pointer;width:88px;text-align:center;font-size:12px;color:var(--mu);transition:.25s}
+.pl i{display:block;width:64px;height:64px;border-radius:50%;margin:0 auto 6px;position:relative;box-shadow:inset -10px -8px 18px rgba(0,0,0,.7),0 0 24px -4px var(--g)}
+.pl i svg{position:absolute;inset:4px;width:calc(100% - 8px);height:calc(100% - 8px)}
+.pl:hover{transform:translateY(-3px)}.pl.on{color:var(--sun);transform:translateY(-5px)}.pl.on i{outline:2px solid var(--ac);outline-offset:3px}
+.ringw{width:min(360px,82vw);margin:40px auto 70px}.ringw::before{display:none}.ringw .in svg{width:30%}.big{font-size:38px;color:#fff}#ring{stroke:#a8d0ff}
+.goalv{text-align:center;height:52px;display:flex;align-items:center;justify-content:center}.goalv b{font-size:26px;font-weight:300;color:var(--sun);text-shadow:0 0 18px var(--ac);white-space:nowrap}
+.gs{width:100%;accent-color:var(--ac);padding:0;margin:6px 0 14px;display:block}
+.tg{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}.tg div{background:var(--tr);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.8}.tg b{display:block;color:var(--ac);font-size:12px;margin-bottom:2px}
+@media(max-width:760px){nav button{padding:8px 4px!important;font-size:10px}}
+body:not([data-t="timer"]) #sp{opacity:.4}
+#sp{transition:opacity .5s}
+.card{background:linear-gradient(160deg,rgba(255,200,140,.07),rgba(255,255,255,.01)),var(--pn)}
+.btn.go{padding:17px 52px;font-size:18px;border-radius:20px;letter-spacing:.3px}.btn:active{transform:scale(.97)}
+nav{padding-top:calc(24px + env(safe-area-inset-top,0px))}.logo{font-size:24px;text-shadow:0 0 22px rgba(255,180,84,.5)}
+nav button{font-size:15px}.stat b{font-weight:300;font-size:24px;color:var(--sun)}
+.chip{transition:.2s}.chip:hover{border-color:var(--bd)}
+html:root:root{--ok:#4fd17f}
+textarea{resize:vertical}
+.card,.stat,.coin,nav{backdrop-filter:none!important;-webkit-backdrop-filter:none!important}
+html:root:root:not([data-theme="light"]){--pn:rgba(8,14,28,.74)}
+</style>
+</head>
+<body>
+<canvas id="sp"></canvas><div class="app">
+<nav id="nav"></nav>
+<main id="main"></main>
+</div>
+<script>
+const K='forestfa2';let S;try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+S=S||{ss:[],sub:[{id:1,n:'ریاضی',c:'#5fe39a'},{id:2,n:'فیزیک',c:'#5ab0e8'},{id:3,n:'ادبیات',c:'#ff9f7a'},{id:4,n:'زبان',c:'#ffc857'}],tk:[],goal:240,ex:[],T:null,kind:0,sel:1,dur:25,mode:'t',th:''};
+const save=()=>{S.ts=Date.now();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}push()};
+const $=s=>document.querySelector(s),f=n=>Math.round(n).toLocaleString('fa-IR');
+const hm=m=>m<60?f(m)+' دقیقه':f(Math.floor(m/60))+' ساعت'+(m%60?' و '+f(m%60)+' دقیقه':'');
+const MN=['فروردین','اردیبهشت','خرداد','تیر','مرداد','شهریور','مهر','آبان','آذر','دی','بهمن','اسفند'],DN=['ش','ی','د','س','چ','پ','ج'];
+const JF=new Intl.DateTimeFormat('en-u-ca-persian',{year:'numeric',month:'numeric',day:'numeric'});
+const J=d=>{const p=JF.formatToParts(d),g=t=>+p.find(x=>x.type===t).value.replace(/\D/g,'');return{y:g('year'),m:g('month'),d:g('day')}};
+const sd=d=>{const x=new Date(d);x.setHours(0,0,0,0);return x},add=(d,n)=>{const x=new Date(d);x.setDate(x.getDate()+n);return x};
+const jstr=d=>{const j=J(d);return f(j.d)+' '+MN[j.m-1]+' '+f(j.y).replace(/٬/g,'')};
+const sub=id=>S.sub.find(s=>s.id==id)||{n:'بدون درس',c:'#999'};
+const KINDS=[['#3fbf6f','#2a9658'],['#f2a65a','#d9772f'],['#e86b8a','#c24266'],['#5ab0e8','#3688c9']];
+const PL=[{n:'زمین',a:'#4fd17f',b:'#2a9658',s:'r',p1:'#7fe39e',p2:'#1d6b3e'},{n:'میلر',a:'#6fe0ff',b:'#2a8fd0',s:'c',p1:'#7ad1ff',p2:'#134a7a'},{n:'مان',a:'#e8f4ff',b:'#9fc4e8',s:'p',p1:'#ffffff',p2:'#6a86a8'},{n:'ادموندز',a:'#ffb454',b:'#e0701f',s:'m',p1:'#ffd08a',p2:'#8a3d10'},{n:'تیتان',a:'#ff8fb3',b:'#d8527f',s:'r',p1:'#ffb3cc',p2:'#7a2a48'},{n:'اروپا',a:'#3fe0c0',b:'#1c9c88',s:'p',p1:'#6ff2d8',p2:'#0d5a4e'},{n:'کپلر',a:'#c49bff',b:'#7a4fd8',s:'c',p1:'#d8baff',p2:'#3b2480'},{n:'مریخ',a:'#ff7a5a',b:'#c2432a',s:'m',p1:'#ffa58a',p2:'#6e1f10'}];
+function tree(p,k,dead){const q=PL[k%8],[a,b]=dead?['#8a7f6b','#6d634f']:[q.a,q.b],h=6+p*46,r=5+p*24,y=88-h,c=(cx,cy,rr,o)=>`<circle cx="${cx}" cy="${cy}" r="${rr}" fill="${o}"/>`;
+let s=`<svg viewBox="0 0 100 100"${q.s=='c'&&!dead?` style="filter:drop-shadow(0 0 5px ${a})"`:''}><ellipse cx="50" cy="90" rx="${24+p*14}" ry="6" fill="#000" opacity=".25"/>`;
+if(p<.08)s+=`<path d="M40 90q10-12 20 0z" fill="#8b5e3c"/><path d="M50 82q-1-8 5-10" stroke="${a}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+else{if(q.s!='c'||dead)s+=`<rect x="${48.5-p*2}" y="${y}" width="${3+p*4}" height="${h}" rx="2" fill="#8b5e3c"/>`;
+if(dead)s+=`<path d="M50 ${y+8}l-14 -8M50 ${y+14}l14 -9" stroke="#6d634f" stroke-width="2.5" stroke-linecap="round"/>`+c(50,y-2,r*.5,b);
+else if(q.s=='r')s+=c(50-r*.55,y+r*.3,r*.75,b)+c(50+r*.55,y+r*.3,r*.75,b)+c(50,y-r*.2,r,a)+c(50-r*.25,y-r*.45,r*.4,'#fff3');
+else if(q.s=='p')for(let i=0;i<3;i++){const w=r*(.8+i*.45),t=y-r*.9+i*r*.75;s+=`<path d="M50 ${t}L${50-w} ${t+r}L${50+w} ${t+r}Z" fill="${i%2?b:a}"/>`}
+else if(q.s=='m'){s+=[-75,-38,0,38,75].map(g=>`<path d="M50 ${y}L${50+Math.sin(g*.0175)*r*1.4} ${y-Math.cos(g*.0175)*r*.9+r*.35}" stroke="${g%2?a:b}" stroke-width="${3+p*4}" stroke-linecap="round"/>`).join('')+c(50,y+2,2+p*3,'#8b5e3c')}
+else{const d=(x0,yy,w,hh,o)=>`<path d="M${x0} ${yy-hh}L${x0+w} ${yy}L${x0} ${yy+hh*.35}L${x0-w} ${yy}Z" fill="${o}"/>`;s+=d(50,88-h*.2,r*.55,h*.8,b)+d(50-r*.7,88-h*.1,r*.35,h*.5,a)+d(50+r*.7,88-h*.1,r*.35,h*.5,a)+d(50,88-h*.25,r*.25,h*.7,'#fff5')}}
+return s+'</svg>'}
+function treeOld(p,k,dead){const [a,b]=dead?['#8a7f6b','#6d634f']:KINDS[k%4],h=6+p*46,r=5+p*24,y=88-h,c=(cx,cy,rr,col)=>`<circle cx="${cx}" cy="${cy}" r="${rr}" fill="${col}"/>`;
+let s=`<svg viewBox="0 0 100 100"><ellipse cx="50" cy="90" rx="${24+p*14}" ry="6" fill="#000" opacity=".18"/>`;
+if(p<.08)s+=`<path d="M40 90q10-12 20 0z" fill="#8b5e3c"/><path d="M50 82q-1-8 5-10" stroke="${a}" stroke-width="3" fill="none" stroke-linecap="round"/>`;
+else{s+=`<rect x="${48.5-p*2}" y="${y}" width="${3+p*4}" height="${h}" rx="2" fill="#8b5e3c"/>`;
+if(dead)s+=`<path d="M50 ${y+8}l-14 -8M50 ${y+14}l14 -9" stroke="#6d634f" stroke-width="2.5" stroke-linecap="round"/>`+c(50,y-2,r*.5,b);
+else s+=c(50-r*.55,y+r*.3,r*.75,b)+c(50+r*.55,y+r*.3,r*.75,b)+c(50,y-r*.2,r,a)+c(50-r*.25,y-r*.45,r*.4,'#fff3')}
+return s+'</svg>'}
+function beep(){try{const A=new(window.AudioContext||window.webkitAudioContext)(),t=A.currentTime;[660,880,1100].forEach((fq,i)=>{const o=A.createOscillator(),g=A.createGain();o.frequency.value=fq;o.connect(g);g.connect(A.destination);g.gain.setValueAtTime(.2,t+i*.18);g.gain.exponentialRampToValueAtTime(.001,t+i*.18+.4);o.start(t+i*.18);o.stop(t+i*.18+.4)})}catch(e){}}
+function toast(m){const e=document.createElement('div');e.className='toast';e.textContent=m;document.body.appendChild(e);setTimeout(()=>e.remove(),2600)}
+function theme(){if(S.th)document.documentElement.dataset.theme=S.th}theme();
+
+/* ranges */
+const sm=d=>{let s=sd(d);while(J(s).d>1)s=add(s,-1);return s};
+function range(p,off){const b=sd(new Date());let s,e,bk=[],t;
+if(p=='d'){s=add(b,off);e=add(s,1);for(let h=0;h<24;h++)bk.push({l:h%3?'':f(h),s:+s+h*36e5,e:+s+(h+1)*36e5});t=jstr(s)}
+else if(p=='w'){s=add(b,-((b.getDay()+1)%7)+off*7);e=add(s,7);for(let i=0;i<7;i++)bk.push({l:DN[i],s:+add(s,i),e:+add(s,i+1)});t=jstr(s)+' تا '+jstr(add(e,-1))}
+else if(p=='m'){s=sm(b);for(let i=0;i<Math.abs(off);i++)s=sm(off<0?add(s,-1):add(s,32));e=sm(add(s,32));for(let d=s,i=1;d<e;d=add(d,1),i++)bk.push({l:i%5==1?f(i):'',s:+d,e:+add(d,1)});const j=J(s);t=MN[j.m-1]+' '+f(j.y).replace(/٬/g,'')}
+else{s=sd(b);const ys=d=>{while(!(J(d).m==1&&J(d).d==1))d=add(d,-1);return d};s=ys(s);for(let i=0;i<Math.abs(off);i++)s=ys(off<0?add(s,-1):add(s,370));e=ys(add(s,370));let cur;for(let d=s;d<e;d=add(d,1)){if(J(d).d==1){cur={l:MN[J(d).m-1].slice(0,4),s:+d,e:+d};bk.push(cur)}cur.e=+add(d,1)}t=f(J(s).y).replace(/٬/g,'')}
+return{s:+s,e:+e,bk,t,p}}
+const ok=(a,b)=>S.ss.filter(x=>x.start>=a&&x.start<b);
+function streak(){let n=0,d=sd(new Date());if(!ok(+d,+add(d,1)).some(x=>x.min>0))d=add(d,-1);while(ok(+d,+add(d,1)).some(x=>x.min>0)){n++;d=add(d,-1)}return n}
+const tm=a=>a.reduce((s,x)=>s+x.min,0);
+function addSession(x){S.ss.push({id:Date.now()+Math.random(),...x});save()}
+
+/* timer */
+let tab='timer',rp='w',roff=0,foff=0,tickI;
+const T_=()=>S.T;
+function startT(){const dur=S.mode=='t'?S.dur:0;S.T={start:Date.now(),dur,mode:S.mode,subj:S.sel,kind:S.kind,tid:S.tid};save();try{Notification.requestPermission()}catch(e){}render()}
+function finishT(giveup){const T=S.T,el=(Date.now()-T.start)/6e4,min=T.mode=='t'?T.dur:Math.floor(el);
+if(giveup){if(el>=.05)addSession({start:T.start,min:(spend(T.tid,Math.max(1,Math.round(el))),Math.max(1,Math.round(el))),subj:T.subj,ok:false,k:T.kind,p:Math.min(1,el/(T.mode=='t'?T.dur:120))});toast('درخت پژمرد 🥀 '+hm(Math.max(1,Math.round(el)))+' ثبت شد')}
+else if(min>=1){addSession({start:T.start,min,subj:T.subj,ok:true,k:T.kind,p:1});spend(T.tid,min);beep();toast('یک درخت کاشتی 🌳 '+hm(min));try{new Notification('جنگل تمرکز',{body:'جلسه تمام شد!'})}catch(e){}}
+S.T=null;document.title='جنگل تمرکز';save();render()}
+function tick(){const T=S.T;if(!T)return;const el=(Date.now()-T.start)/1e3;let p,txt;
+if(T.mode=='t'){const left=T.dur*60-el;if(left<=0)return finishT(false);p=el/(T.dur*60);txt=Math.floor(left/60).toString().padStart(2,'0')+':'+Math.floor(left%60).toString().padStart(2,'0')}
+else{p=Math.min(1,el/7200);txt=Math.floor(el/60).toString().padStart(2,'0')+':'+Math.floor(el%60).toString().padStart(2,'0')}
+const a=$('#tt');if(!a)return;a.textContent=txt.replace(/\d/g,d=>'۰۱۲۳۴۵۶۷۸۹'[d]);document.title=a.textContent+' | تمرکز';
+$('#ring').setAttribute('stroke-dashoffset',(754*(1-p)).toFixed(1));const tw=$('#tw'),st=Math.round(p*20);if(tw.dataset.s!=st){tw.dataset.s=st;tw.innerHTML=tree(p,T.kind,false)}}
+function giveUp(){const b=$('#gu');if(b.dataset.c){finishT(true);return}b.dataset.c=1;b.textContent='مطمئنی؟ دوباره بزن';setTimeout(()=>{if(b.isConnected){delete b.dataset.c;b.textContent='انصراف (درخت می‌میره)'}},3500)}
+setInterval(tick,500);
+
+/* views */
+function vTimer(){const T=S.T,td=sd(new Date()),m=tm(ok(+td,+add(td,1))),g=Math.min(100,m/S.goal*100);
+const p=T?0:0;
+return `<h2>تمرکز کن، درخت بکار 🌱</h2><div class="stats"><div class="stat"><b>${hm(m)}</b><span>امروز</span></div><div class="stat"><b>${f(streak())} روز</b><span>پیاپی</span></div><div class="stat"><b>${f(S.ss.filter(x=>x.ok).length)}</b><span>درخت زنده</span></div></div>
+<div class="card" style="background:none;border:0;backdrop-filter:none;box-shadow:none"><div class="ringw" style="--p1:${PL[T?T.kind:S.kind%8].p1};--p2:${PL[T?T.kind:S.kind%8].p2}"><svg class="r" viewBox="0 0 260 260"><circle cx="130" cy="130" r="120" fill="none" stroke="var(--tr)" stroke-width="12"/><circle id="ring" cx="130" cy="130" r="120" fill="none" stroke="var(--ac)" stroke-width="12" stroke-linecap="round" stroke-dasharray="754" stroke-dashoffset="754" style="filter:drop-shadow(0 0 8px var(--ac))"/></svg>
+<div class="in"><div id="tw" style="display:contents">${tree(.0,T?T.kind:S.kind,false)}</div><div class="big" id="tt">${f(S.mode=='t'?S.dur:0).padStart?'':''}${S.mode=='t'?f(S.dur)+':۰۰':'۰۰:۰۰'}</div></div></div>
+${T?`<div class="row"><span class="chip on"><span class="dot" style="background:${sub(T.subj).c};display:inline-block"></span> ${sub(T.subj).n}</span><button class="btn d" id="gu" onclick="giveUp()">انصراف (درخت می‌میره)</button>${T.mode=='s'?'<button class="btn" onclick="finishT(false)">پایان و کاشت</button>':''}</div>`:
+`<div class="row"><div class="seg"><button class="${S.mode=='t'?'on':''}" onclick="S.mode='t';save();render()">تایمر</button><button class="${S.mode=='s'?'on':''}" onclick="S.mode='s';save();render()">کرونومتر</button></div></div>
+${S.mode=='t'?`<div class="chips">${[15,25,45,60,90,120].map(d=>`<button class="chip ${S.dur==d?'on':''}" onclick="S.dur=${d};save();render()">${f(d)}</button>`).join('')}</div><div class="row"><input type="range" min="5" max="180" step="5" value="${S.dur}" oninput="S.dur=+this.value;save();$('#tt').textContent=f(S.dur)+':۰۰'" aria-label="مدت"></div>`:''}
+<div class="chips">${S.sub.map(s=>`<button class="chip ${S.sel==s.id?'on':''}" onclick="S.sel=${s.id};save();render()"><span class="dot" style="background:${s.c};display:inline-block"></span> ${s.n}</button>`).join('')}</div>
+<div class="mu" style="text-align:center">سیاره و گونه درخت</div><div class="planets">${PL.map((q,i)=>`<button class="pl ${S.kind==i?'on':''}" style="--g:${q.p1}" onclick="S.kind=${i};save();render()"><i style="background:radial-gradient(circle at 32% 28%,${q.p1},${q.p2} 72%)">${tree(.75,i)}</i>${q.n}</button>`).join('')}</div><div class="mu" style="text-align:center">ماموریت</div><div class="chips">${S.tk.filter(t=>!t.done).slice(0,8).map(t=>`<button class="chip ${S.tid==t.id?'on':''}" onclick="S.tid=S.tid==${t.id}?0:${t.id};S.sel=${t.s};save();render()">🛰 ${t.t}</button>`).join('')||'<span class="mu">از تب برنامه یک کار اضافه کن</span>'}</div>
+<div class="row"><button class="btn go" onclick="startT()">🌱 شروع کاشت</button></div>`}</div>
+<div class="card"><h3>هدف روزانه: ${hm(m)} از ${hm(S.goal)}</h3><div class="bar"><i style="width:${g}%"></i></div></div>`}
+
+function vForest(){const r=range('m',foff),a=ok(r.s,r.e),days={};a.forEach(x=>{const k=+sd(x.start);(days[k]=days[k]||[]).push(x)});
+return `<h2>جنگل من</h2>${nav('f')}<div class="stats"><div class="stat"><b>${f(a.filter(x=>x.ok).length)}</b><span>درخت زنده</span></div><div class="stat"><b>${f(a.filter(x=>!x.ok).length)}</b><span>درخت پژمرده</span></div><div class="stat"><b>${hm(tm(a))}</b><span>تمرکز این ماه</span></div></div>
+<div class="card">${Object.keys(days).length?Object.keys(days).sort((x,y)=>y-x).map(k=>`<h3>${jstr(new Date(+k))}</h3><div class="forest" style="margin-bottom:14px">${days[k].map(x=>`<div class="${x.ok?'':'dead'}" title="${sub(x.subj).n} - ${hm(x.min)}">${tree(x.p??1,x.k||0,!x.ok)}</div>`).join('')}</div>`).join(''):'<p class="mu">این ماه هنوز درختی نکاشتی. از تب تایمر شروع کن.</p>'}</div>`}
+
+function nav(w){const r=w=='f'?range('m',foff):range(rp,roff),fn=w=='f'?'foff':'roff';return `<div class="row" style="justify-content:space-between;margin-bottom:14px"><button class="btn g s" onclick="${fn}--;render()">قبلی ›</button><b>${r.t}</b><button class="btn g s" onclick="${fn}++;render()">‹ بعدی</button></div>`}
+
+function vReport(){const r=range(rp,roff),a=ok(r.s,r.e),tot=tm(a),vals=r.bk.map(b=>tm(a.filter(x=>x.start>=b.s&&x.start<b.e))),mx=Math.max(...vals,1),act=vals.filter(v=>v>0).length,bi=vals.indexOf(Math.max(...vals));
+const bys=S.sub.map(s=>({...s,m:tm(a.filter(x=>x.subj==s.id))})).filter(s=>s.m>0).sort((x,y)=>y.m-x.m);
+const unit=rp=='d'?'ساعت':rp=='y'?'ماه':'روز';
+return `<h2>گزارش‌ها</h2><div class="row" style="margin-bottom:14px"><div class="seg">${[['d','روزانه'],['w','هفتگی'],['m','ماهانه'],['y','سالانه']].map(([k,l])=>`<button class="${rp==k?'on':''}" onclick="rp='${k}';roff=0;render()">${l}</button>`).join('')}</div></div>${nav('r')}
+<div class="stats"><div class="stat"><b>${hm(tot)}</b><span>مجموع تمرکز</span></div><div class="stat"><b>${f(a.filter(x=>x.ok).length)}</b><span>جلسه موفق</span></div><div class="stat"><b>${f(a.filter(x=>!x.ok).length)}</b><span>انصراف</span></div><div class="stat"><b>${hm(act?tot/act:0)}</b><span>میانگین هر ${unit} فعال</span></div><div class="stat"><b>${tot?r.bk[bi].l||f(bi+1):'-'}</b><span>بهترین ${unit}</span></div><div class="stat"><b>${f(streak())}</b><span>روز پیاپی</span></div></div>
+<div class="card"><h3>نمودار زمان تمرکز</h3><div class="chart">${vals.map((v,i)=>`<div class="col" title="${hm(v)}"><i style="height:${v/mx*88}%"></i><small>${r.bk[i].l}</small></div>`).join('')}</div></div>
+<div class="grid"><div class="card"><h3>به تفکیک درس</h3>${bys.length?bys.map(s=>`<div style="margin-bottom:12px"><div class="row" style="justify-content:space-between"><span><span class="dot" style="background:${s.c};display:inline-block"></span> ${s.n}</span><span class="mu">${hm(s.m)} · ${f(s.m/tot*100)}٪</span></div><div class="bar"><i style="width:${s.m/tot*100}%;background:${s.c}"></i></div></div>`).join(''):'<p class="mu">داده‌ای نیست.</p>'}</div>
+<div class="card"><h3>ثبت دستی زمان مطالعه</h3><div class="row"><select id="ms">${S.sub.map(s=>`<option value="${s.id}">${s.n}</option>`).join('')}</select><input id="mm" type="number" min="1" placeholder="دقیقه" style="width:100px"><input id="md" type="date" value="${new Date().toISOString().slice(0,10)}"><button class="btn s" onclick="manual()">ثبت</button></div>
+<h3 style="margin-top:18px">جلسه‌های این بازه</h3>${a.slice().sort((x,y)=>y.start-x.start).slice(0,12).map(x=>`<div class="li"><span class="dot" style="background:${sub(x.subj).c}"></span><div class="g">${sub(x.subj).n}<div class="mu">${jstr(new Date(x.start))} ${x.ok?'':'· انصراف'}</div></div><b>${hm(x.min)}</b><button class="btn g s" onclick="S.ss=S.ss.filter(y=>y.id!=${x.id});save();render()">حذف</button></div>`).join('')||'<p class="mu">جلسه‌ای نیست.</p>'}</div></div>`}
+function manual(){const m=+$('#mm').value;if(!m)return toast('دقیقه را وارد کن');const d=new Date($('#md').value+'T12:00:00');addSession({start:+d,min:m,subj:+$('#ms').value,ok:true,k:0,p:1});toast('ثبت شد');render()}
+
+function vPlan(){const td=+sd(new Date()),sorted=S.tk.slice().sort((a,b)=>a.done-b.done||(a.due||'9').localeCompare(b.due||'9'));
+return `<h2>برنامه مطالعه</h2><div class="grid"><div class="card"><h3>کارهای من</h3><div class="row" style="margin-bottom:10px"><input id="tn" placeholder="مثلا: حل تمرین فصل ۳" style="flex:1;min-width:150px"><select id="ts">${S.sub.map(s=>`<option value="${s.id}">${s.n}</option>`).join('')}</select><input id="td" type="date"><button class="btn s" onclick="addT()">افزودن</button></div>
+${sorted.map(t=>`<div class="li"><input type="checkbox" ${t.done?'checked':''} onchange="tg(${t.id})" style="width:20px;height:20px;accent-color:var(--ac)"><div class="g ${t.done?'done':''}">${t.t}<div class="mu"><span class="dot" style="background:${sub(t.s).c};display:inline-block"></span> ${sub(t.s).n}${t.spent?' · '+hm(t.spent)+' تمرکز':''}${t.due?' · '+jstr(new Date(t.due+'T12:00')):''}${t.due&&!t.done&&+new Date(t.due+'T00:00')<td?' · <b style="color:var(--dn)">عقب‌افتاده</b>':''}</div></div>${t.done?'':`<button class="btn s" onclick="S.sel=${t.s};tab='timer';save();render()">شروع</button>`}<button class="btn g s" onclick="S.tk=S.tk.filter(y=>y.id!=${t.id});save();render()">✕</button></div>`).join('')||'<p class="mu">هنوز کاری اضافه نکردی.</p>'}</div>
+<div class="card"><h3>شمارش معکوس امتحان‌ها</h3><div class="row" style="margin-bottom:10px"><input id="en" placeholder="نام امتحان" style="flex:1;min-width:120px"><input id="ed" type="date"><button class="btn s" onclick="addE()">افزودن</button></div>
+${S.ex.slice().sort((a,b)=>a.d.localeCompare(b.d)).map(e=>{const n=Math.ceil((new Date(e.d+'T00:00')-td)/864e5);return `<div class="li"><div class="g"><b>${e.n}</b><div class="mu">${jstr(new Date(e.d+'T12:00'))}</div></div><b style="color:${n<7?'var(--dn)':'var(--ac)'}">${n>=0?f(n)+' روز مانده':'گذشته'}</b><button class="btn g s" onclick="S.ex=S.ex.filter(y=>y.id!=${e.id});save();render()">✕</button></div>`}).join('')||'<p class="mu">تاریخ امتحان‌ها را اضافه کن.</p>'}</div></div>`}
+function addT(){const t=$('#tn').value.trim();if(!t)return;S.tk.push({id:Date.now(),t,s:+$('#ts').value,due:$('#td').value,done:0});save();render()}
+function tg(id){const t=S.tk.find(x=>x.id==id);t.done=t.done?0:1;save();render()}
+function addE(){const n=$('#en').value.trim(),d=$('#ed').value;if(!n||!d)return;S.ex.push({id:Date.now(),n,d});save();render()}
+
+function vSet(){return `<h2>تنظیمات</h2><div class="grid"><div class="card">${accCard()}</div><div class="card"><h3>نصب روی گوشی و لپ‌تاپ</h3><p class="mu" style="line-height:1.9">آیفون: در Safari دکمه Share و بعد Add to Home Screen. اندروید: در Chrome منو و بعد Install app. ویندوز و مک: آیکون نصب در نوار آدرس Chrome یا Edge.</p><button id="inst" class="btn s" style="display:${DI?'':'none'}" onclick="doInst()">نصب برنامه</button></div><div class="card"><h3>درس‌ها</h3>${S.sub.map(s=>`<div class="li"><input type="color" value="${s.c}" onchange="sub(${s.id}).c=this.value;save()" style="width:40px;padding:2px"><div class="g">${s.n}</div><button class="btn g s" onclick="if(S.sub.length>1){S.sub=S.sub.filter(y=>y.id!=${s.id});S.sel=S.sub[0].id;save();render()}">حذف</button></div>`).join('')}<div class="row" style="margin-top:10px"><input id="sn" placeholder="درس جدید" style="flex:1"><button class="btn s" onclick="const n=$('#sn').value.trim();if(n){S.sub.push({id:Date.now(),n,c:'#'+Math.floor(Math.random()*0xffffff|0x808080).toString(16).slice(0,6).padStart(6,'8')});save();render()}">افزودن</button></div></div>
+<div class="card"><h3>هدف روزانه</h3><div class="goalv"><b id="gl">${hm(S.goal)}</b></div><input class="gs" type="range" min="30" max="1440" step="30" value="${S.goal}" oninput="S.goal=+this.value;$('#gl').textContent=hm(S.goal)" onchange="save();render()" aria-label="هدف روزانه"><div class="chips">${[120,240,360,480,720,1440].map(g=>`<button class="chip ${S.goal==g?'on':''}" onclick="S.goal=${g};save();render()">${f(g/60)} ساعت</button>`).join('')}</div><h3 style="margin-top:20px">ظاهر</h3><div class="seg">${[['','خودکار'],['light','روشن'],['dark','تیره']].map(([k,l])=>`<button class="${S.th==k?'on':''}" onclick="S.th='${k}';if(!'${k}')delete document.documentElement.dataset.theme;theme();save();render()">${l}</button>`).join('')}</div>
+<h3 style="margin-top:20px">پشتیبان‌گیری</h3><div class="row"><button class="btn g s" onclick="exp()">دریافت فایل</button><label class="btn g s">بازیابی<input type="file" accept=".json" hidden onchange="imp(this)"></label></div></div></div>`}
+function exp(){const b=new Blob([JSON.stringify(S)],{type:'application/json'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='forest-backup.json';a.click()}
+function imp(i){const r=new FileReader();r.onload=()=>{try{S=JSON.parse(r.result);save();render();toast('بازیابی شد')}catch(e){toast('فایل معتبر نیست')}};r.readAsText(i.files[0])}
+
+const TABS=[['timer','⏱','تایمر',vTimer],['forest','🌳','جنگل',vForest],['plan','📋','برنامه',vPlan],['wis','📖','حکمت',vWis],['trade','📈','ترید',vTrade],['report','📊','گزارش',vReport],['set','⚙️','تنظیمات',vSet]];
+function render(){document.body.dataset.t=tab;const coins=S.ss.filter(x=>x.ok).reduce((s,x)=>s+Math.floor(x.min/5),0);
+$('#nav').innerHTML=`<div class="logo">${tree(.8,0)}جنگل تمرکز</div>`+TABS.map(t=>`<button class="${tab==t[0]?'on':''}" onclick="tab='${t[0]}';render()"><span>${t[1]}</span>${t[2]}</button>`).join('')+`<div class="sp"></div>${DI?`<button class="btn s" onclick="doInst()" style="margin-bottom:8px">⬇️ نصب برنامه</button>`:''}<div class="coin" id="sy2" style="font-size:12px">${SY.t||''}</div><div class="coin">🪙 ${f(coins)} سکه</div>`;
+$('#main').innerHTML=TABS.find(t=>t[0]==tab)[3]();tick()}
+function spend(id,m){const t=S.tk.find(x=>x.id==id);if(t){t.spent=(t.spent||0)+m;save()}}
+
+const SY={t:'',s:null};
+function sync(t){SY.t=t;const e=$('#sy2');if(e)e.textContent=t}
+const CF=()=>{try{return JSON.parse(localStorage.getItem('forestcf'))||{}}catch(e){return{}}};
+const sb=async(path,o={})=>{const c=CF(),r=await fetch(c.url.replace(/\/$/,'')+path,{...o,headers:{apikey:c.key,'Content-Type':'application/json',...((SY.s&&SY.s.access_token)?{Authorization:'Bearer '+SY.s.access_token}:{}),...(o.headers||{})}});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.msg||j.error_description||j.message||('خطا '+r.status));return j};
+function setSess(j){SY.s={access_token:j.access_token,refresh_token:j.refresh_token,exp:Date.now()+(j.expires_in||3600)*1e3-6e4,uid:j.user?j.user.id:SY.s.uid,email:j.user?j.user.email:SY.s.email};try{localStorage.setItem('forestss',JSON.stringify(SY.s))}catch(e){}}
+async function authDo(kind){const e=$('#ae').value.trim(),p=$('#ap').value;if(!e||p.length<6)return toast('ایمیل و رمز (حداقل ۶ حرف) لازم است');try{const j=await sb(kind=='up'?'/auth/v1/signup':'/auth/v1/token?grant_type=password',{method:'POST',body:JSON.stringify({email:e,password:p})});if(!j.access_token)return toast('ایمیل‌ات را تایید کن، بعد وارد شو');setSess(j);await pull();render()}catch(x){toast(x.message)}}
+async function refresh(){const s=SY.s;if(!s)return false;if(Date.now()<s.exp)return true;try{const j=await sb('/auth/v1/token?grant_type=refresh_token',{method:'POST',body:JSON.stringify({refresh_token:s.refresh_token})});setSess(j);return true}catch(e){return false}}
+async function up(){await sb('/rest/v1/user_state?on_conflict=user_id',{method:'POST',headers:{Prefer:'resolution=merge-duplicates'},body:JSON.stringify({user_id:SY.s.uid,data:S,ts:S.ts||Date.now()})})}
+async function pull(){if(!SY.s||!(await refresh()))return sync('💾 ذخیره محلی');try{const r=await sb('/rest/v1/user_state?select=data,ts&user_id=eq.'+SY.s.uid);if(r[0]){if(!S.ts||r[0].ts>S.ts){SY.lock=1;S=r[0].data;S.ts=r[0].ts;try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}render();SY.lock=0}else if(r[0].ts<S.ts)await up()}else await up();sync('☁️ همگام')}catch(e){sync('⚠️ خطای همگام‌سازی')}}
+function push(){clearTimeout(push.t);if(!SY.s||SY.lock)return;push.t=setTimeout(async()=>{try{if(await refresh()){await up();sync('☁️ همگام')}}catch(e){sync('⚠️ خطای همگام‌سازی')}},1500)}
+function logout(){SY.s=null;try{localStorage.removeItem('forestss')}catch(e){}sync('💾 ذخیره محلی');render()}
+function saveCf(){const u=$('#su').value.trim(),k=$('#sk').value.trim();if(!/^https?:\/\//.test(u)||k.length<20)return toast('آدرس و کلید را درست وارد کن');try{localStorage.setItem('forestcf',JSON.stringify({url:u,key:k}))}catch(e){}render()}
+function accCard(){const c=CF(),i='style="width:100%;margin-bottom:8px;direction:ltr"';
+if(SY.s)return `<h3>حساب من</h3><div class="li"><div class="g"><b style="direction:ltr;display:block">${SY.s.email}</b><div class="mu">${SY.t}</div></div><button class="btn g s" onclick="logout()">خروج</button></div><p class="mu" style="line-height:1.9">با همین ایمیل و رمز روی هر دستگاه وارد شو تا اطلاعاتت همگام شود. هر کس حساب خودش را بسازد، داده‌اش جداست.</p>`;
+if(!c.url)return `<h3>حساب و همگام‌سازی (اختیاری)</h3><p class="mu" style="line-height:1.9">برنامه بدون حساب هم کامل کار می‌کند و اطلاعات روی همین دستگاه می‌ماند. برای همگام‌سازی گوشی و لپ‌تاپ، آدرس و کلید پروژه رایگان Supabase را یک‌بار وارد کن (راهنما در README).</p><input id="su" placeholder="Project URL" ${i}><input id="sk" placeholder="anon public key" ${i}><button class="btn s" onclick="saveCf()">ذخیره</button>`;
+return `<h3>ورود یا ساخت حساب</h3><input id="ae" type="email" placeholder="ایمیل" ${i}><input id="ap" type="password" placeholder="رمز (حداقل ۶ حرف)" ${i}><div class="row" style="justify-content:flex-start"><button class="btn s" onclick="authDo('in')">ورود</button><button class="btn g s" onclick="authDo('up')">ساخت حساب</button><button class="btn g s" onclick="localStorage.removeItem('forestcf');render()">تغییر پروژه</button></div>`}
+try{SY.s=JSON.parse(localStorage.getItem('forestss'))}catch(e){}
+if(SY.s&&CF().url)pull();else sync('💾 ذخیره محلی');
+setInterval(()=>{if(SY.s&&!document.hidden)pull()},60000);
+let DI;addEventListener('beforeinstallprompt',e=>{e.preventDefault();DI=e;render()});addEventListener('appinstalled',()=>{DI=null;render()});
+function doInst(){if(DI){DI.prompt();DI=null;render()}}
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('sw.js').catch(()=>{});
+function quick(m){if(!m||m<1)return toast('دقیقه را وارد کن');addSession({start:Date.now(),min:Math.round(m),subj:S.sel,ok:true,k:S.kind,p:1});spend(S.tid,Math.round(m));toast('+ '+hm(m));render()}
+const Q=[['خ','تفکر، سریع و کند (کانمن)','ذهن برای ساده شدن داستان می‌سازد؛ قبل از باور کردن اولین توضیح، بپرس چه چیزی را ندیده‌ام.'],['خ','عادت‌های اتمی (جیمز کلیر)','بهتر شدن یک درصدی در هر روز در بلندمدت مثل سود مرکب انباشته می‌شود؛ سیستم مهم‌تر از هدف است.'],['خ','مراقبه‌ها (مارکوس اورلیوس)','رویدادها در دست تو نیستند، واکنش و تفسیر تو از آن‌ها همان چیزی است که می‌توانی ازش مراقبت کنی.'],['خ','مردی در جستجوی معنا (ویکتور فرانکل)','وقتی برای زندگی چرایی قانع‌کننده داری، سختی‌ها قابل تحمل‌تر می‌شوند.'],['خ','ذهنیت رشدی (کارول دوئک)','توانایی محصول تمرین است؛ به جای «نمی‌توانم» بگو«هنوز یاد نگرفته‌ام».'],['خ','کار عمیق (کال نیوپورت)','سه ساعت تمرکز واقعی بیش از هشت ساعت نیمه‌توجه ارزش دارد؛ تمرکز مهارتی نایاب است.'],['خ','چهار هزار هفته (الیور برکمن)','زندگی کوتاه است و همه کارها را نمی‌شود تمام کرد؛ شجاعت یعنی انتخاب مهم‌ترین‌ها و رها کردن بقیه.'],['خ','قدرت حال (اکهارت تله)','اضطراب از آینده می‌آید و پشیمانی از گذشته؛ توجه کامل به همین لحظه، هر دو را کم می‌کند.'],
+['ت','تریدینگ در منطقه (مارک داگلاس)','نتیجه هر معامله تصادفی است؛ فقط اجرای درست قوانین در کنترل توست؛ به احتمال فکر کن، نه به یک معامله.'],['ت','خاطرات یک سهام‌دار (ادوین لوفور)','پول بزرگ در صبر کردن به روند است نه در جاب‌ه‌جا شدن مدام؛ هیجان دشمن همیشگی معامله‌گر است.'],['ت','سرمایه‌گذار هوشمند (بنجامین گراهام)','حاشیه امنیت یعنی بخر وقتی قیمت از ارزش پایین‌تر است؛ بازار گاهی دوره‌ای ترس‌و طمع دارد و تو نباید همراهش شوی.'],['ت','جادوگران بازار (جک شواگر)','بزرگ‌ترین معامله‌گران از مدیریت ریسک شروع می‌کنند؛ اول بقا، بعد سود.'],['ت','فریب تصادف (طالب)','موفقیت کوتاه‌مدت ممکن است فقط شانس باشد؛ زنده ماندن در بازی مهم‌تر از درست پیش‌بینی کردن است.'],['ت','ضدشکننده (طالب)','از نوسان نترس؛ استراتژی را طوری بچین که ضربه‌های کوچک تو را قوی‌تر کنند و یک ضربه بزرگ نابودت نکند.'],['ت','معامله به سبک آزادی مالی (ون تارپ)','اندازه موقعیت مهم‌تر از نقطه ورود است؛ بگو قبل از هر معامله چقدر را می‌توانی از دست بدهی.'],['ت','کتاب کوچک سرمایه‌گذاری با منطق (جک باگل)','هزینه‌ها دشمن خاموش بازده‌اند؛ از کارمزد و معامله زیاد به مرور محتاط باش.'],
+['ه','ابرهوش (نیک بوسترام)','هوشی که از انسان پیش بگیرد از همان قدرتی مهم می‌شود که هدف‌هایش با انسان هم‌راستا باشد.'],['ه','زندگی ۳.۰ (مکس تگمارک)','هوش مصنوعی فقط یک ابزار نیست؛ آینده‌ای است که باید با طراحی آگاهانه ساخت.'],['ه','سازگار با انسان (استوارت راسل)','ماشین باید درباره خواسته‌های انسان مطمئن نباشد تا همیشه بپرسد و از دستور سرپیچی نکند.'],['ه','یادگیری عمیق (گودفلو و همکاران)','یادگیری عمیق یعنی ساختن مفاهیم پیچیده لایه‌به‌لایه از مفاهیم ساده‌تر.'],['ه','الگوریتم برتر (پدرو دومینگوس)','پنج مکتب اصلی همه بخشی از حقیقت‌اند؛ احتمالاً هوش آینده ترکیبی از آن‌ها است.'],['ه','ماشین‌های پیش‌بین (آگروال و همکاران)','وقتی پیش‌بینی ارزان می‌شود، ارزش به قضاوت انسان می‌رود که به نتیجه معنا می‌دهد.'],['ه','درس تلخ (ریچارد ساتون)','روش‌های عمومی که با محاسبه مقیاس می‌گیرند، در بلندمدت از دانش دستی برنده می‌شوند.'],['ه','یادگیری ماشین عملی (آرلین ژرون)','با یک پروژه کوچک شروع کن؛ داده تمیز از مدل پیچیده مهم‌تر است.'],['ه','همه جانبه هوش مصنوعی (راسل و نورگ)','هر سیستم هوشمند در واقع یک عامل است که محیط را می‌بیند و برای رسیدن به هدفی تصمیم می‌گیرد.'],
+['ا','صفر به یک (پیتر تیل)','ارزش واقعی از ساختن چیزی تازه می‌آید نه کپی کردن؛ بپرس چه حقیقتی را کم‌کسی باور دارد؟'],['ا','استارتاپ لین (اریک ریس)','سریع بساز، اندازه بگیر، یاد بگیر؛ حلقه یادگیری را تنگ‌تر کن.'],['ا','تست مام (راب فیتزپاتریک)','از مردم درباره گذشته و مشکلات واقعی‌شان بپرس، نه نظرشان درباره ایده تو؛ مردم به ایده تو دروغ می‌گویند.'],['ا','شرکت خلاق (اد کتمول)','ایده‌های اولی ضعیف هستند؛ فرایند بازنویسی و بازخورد صادقانه آن‌ها را خوب می‌کند.'],['ا','سخت‌ترین بخش کسب‌وکار (بن هوروویتز)','برای لحظه‌های خیلی سخت دستورالعمل آماده‌ای نیست؛ شجاعت ادامه دادن و صداقت در بحران اصل است.'],['ا','تقویم چارلی مانگر','معکوس فکر کن: بجای «چطور موفق شوم» بپرس «چه چیزی شکست می‌آورد؟» و آن را از بین ببر.'],['ا','مثل یک هنرمند بدزد (آستن کلان)','ایده‌ها ترکیب چیزهای قبلی‌اند؛ از چند الهام‌بخش بیاموز و ترکیب شخصی خودت را بساز.'],['ا','دامنه (دیوید اپستاین)','تنوع در تجربه خلاقیت می‌سازد؛ همه متخصص زودهنگام نمی‌شوند.'],
+['ث','روان‌شناسی پول (ماگان هاوزل)','ثروتمند ماندن مهم‌تر از ثروتمند شدن است؛ رفتار با پول از دانش مالی تأثیر بیشتری دارد.'],['ث','پدر ثروتمند، پدر فقیر (رابرت کیوساکی)','دارایی چیزی است که پول به جیب تو می‌آورد، نه چیزی که فقط شبیه دارایی است.'],['ث','نوال راویکانت','ثروت با دانش خاص و اهرم (کد، رسانه، سرمایه) ساخته می‌شود، نه با فروش ساعت‌های عمر.'],['ث','بفت: مردی که به برف رسید','سود مرکب به زمان و صبر نیاز دارد؛ بیشتر ثروت بزرگ در سال‌های آخر ساخته می‌شود.'],['ث','ثروت‌مندترین مرد بابل','همیشه از درآمد بخشی را برای خودت کنار بگذار؛ اول به خودت بپرداز.'],['ث','سگ کفش (فیل نایت)','وقتی کسی باور ندارد، ادامه دادن همان چیزی است که بنیان‌گذاران را از بقیه جدا می‌کند.'],['ث','اصول (ری دالیو)','با صادقانه‌ترین بازخورد و واقعی‌ترین نگاه به خودت رشد می‌کنی؛ درد بهعلاوه بازاندیشی مساوی پیشرفت.']];
+let wc='';const WC=[['','همه'],['خ','خودشناسی'],['ت','ترید'],['ه','هوش مصنوعی'],['ا','ایده و کسب‌وکار'],['ث','ثروت']];
+function vWis(){const n=Math.floor(+sd(new Date())/864e5),L=wc?Q.filter(q=>q[0]==wc):Q,ex=S.wx&&S.wx.d==n?S.wx.c:0,cnt=Math.min(L.length,10+ex),st=(n*10)%L.length,it=Array.from({length:cnt},(_,i)=>L[(st+i)%L.length]);
+return `<h2>حکمت امروز</h2><p class="mu">برداشت آزاد از ایده‌های کتاب‌های معروف (با بازنویسی به فارسی، نه نقل‌قول مستقیم). هر روز ۱۰ تای جدید.</p><div class="chips">${WC.map(([k,l])=>`<button class="chip ${wc==k?'on':''}" onclick="wc='${k}';render()">${l}</button>`).join('')}</div>
+<div class="card">${it.map((q,i)=>`<div class="li"><b style="color:var(--ac);width:28px">${f(i+1)}</b><div class="g">${q[2]}<div class="mu">از «${q[1]}»</div></div></div>`).join('')}<div class="row" style="margin-top:14px">${cnt<L.length?`<button class="btn" onclick="S.wx={d:${n},c:${ex+10}};save();render()">۱۰ تای دیگه نشونم بده</button>`:'<span class="mu">همه را خواندی! فردا جدیدها می‌آیند.'}</div></div>
+<div class="card"><h3>دفترچه امروز</h3><textarea rows="5" style="width:100%;font:inherit;color:var(--tx);background:var(--tr);border:1px solid var(--bd);border-radius:12px;padding:12px" placeholder="امروز چی یاد گرفتم؟ فردا مهم‌ترین کارم چیه؟" oninput="(S.jr=S.jr||{})['${n}']=this.value;save()">${(S.jr&&S.jr[n])||''}</textarea></div>`}
+(function(){const c=$('#sp'),x=c.getContext('2d'),RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+let w=0,h=0,st=[],sh=[],t=0,wp=1,cx,cy,sc;const or=[];
+function rs(){const d=Math.min(devicePixelRatio||1,1.5);w=innerWidth;h=innerHeight;c.width=w*d;c.height=h*d;x.setTransform(d,0,0,d,0,0);st=Array.from({length:Math.round(w*h/4500)},()=>({x:Math.random()*w,y:Math.random()*h,z:.3+Math.random()*1.3,o:Math.random()*6}));if(cx==null){cx=w/2;cy=h*.3;sc=300}}
+rs();
+const N=innerWidth<600?56:90;
+for(let i=0;i<N;i++){const u=i/(N-1);or.push({r:1.1+Math.pow(u,1.45)*3.9,w:.7+Math.random()*2.2,d:[40+Math.random()*200,12+Math.random()*100],o:Math.random()*600,a:.25+Math.random()*.55})}
+function loop(){if(innerWidth!==w||innerHeight!==h)rs();t+=.016;wp+=((S.T?5:1)-wp)*.04;
+const el=tab=='timer'&&document.querySelector('.ringw');let tx=w/2,ty=Math.min(h*.28,240),ts=Math.min(w,h)*.55;if(el){const r=el.getBoundingClientRect();tx=r.left+r.width/2;ty=r.top+r.height/2;ts=r.width}
+cx+=(tx-cx)*.35;cy+=(ty-cy)*.35;sc+=(ts-sc)*.35;const R=sc*.30,s=R/120;
+x.globalCompositeOperation='source-over';x.globalAlpha=1;x.fillStyle='#02040a';x.fillRect(0,0,w,h);
+for(const q of st){q.x-=q.z*.3*wp;if(q.x<-20){q.x=w+10;q.y=Math.random()*h}x.globalAlpha=.3+.7*Math.abs(Math.sin(t*1.4+q.o));x.fillStyle=q.z>1.2?'#ffe6c2':'#dfeaff';x.fillRect(q.x,q.y,q.z*(1+wp*1.6),q.z)}x.globalAlpha=1;
+if(Math.random()<.008)sh.push({x:Math.random()*w,y:Math.random()*h*.5,vx:-10-Math.random()*6,vy:3+Math.random()*3,l:1});
+sh=sh.filter(m=>m.l>0);for(const m of sh){m.x+=m.vx;m.y+=m.vy;m.l-=.016;const g=x.createLinearGradient(m.x,m.y,m.x-m.vx*7,m.y-m.vy*7);g.addColorStop(0,'rgba(255,240,210,'+m.l+')');g.addColorStop(1,'rgba(0,0,0,0)');x.strokeStyle=g;x.lineWidth=2;x.beginPath();x.moveTo(m.x,m.y);x.lineTo(m.x-m.vx*7,m.y-m.vy*7);x.stroke()}
+x.globalCompositeOperation='lighter';
+x.save();x.translate(cx-R*.7,cy+R*.15);x.rotate(-.2);x.scale(1,.3);let g=x.createRadialGradient(0,0,R*.6,0,0,R*6);g.addColorStop(0,'rgba(140,190,255,.45)');g.addColorStop(.35,'rgba(60,110,235,.2)');g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.beginPath();x.arc(0,0,R*6,0,7);x.fill();x.restore();
+g=x.createRadialGradient(cx,cy,R,cx,cy,R*3.2);g.addColorStop(0,'rgba(70,120,255,.3)');g.addColorStop(1,'rgba(0,0,0,0)');x.fillStyle=g;x.fillRect(cx-R*3.2,cy-R*3.2,R*6.4,R*6.4);
+const br=.42+.06*Math.sin(t*.5);
+const pass=front=>{x.save();x.translate(cx,cy);x.rotate(-.2);
+const gr=(a,b,d)=>{const q=x.createLinearGradient(-R*4.8,0,R*3.2,0);q.addColorStop(0,'rgba(50,100,255,.15)');q.addColorStop(br-.2,b);q.addColorStop(br,a);q.addColorStop(.72,d);q.addColorStop(1,'rgba(30,60,200,.05)');return q};
+const G=[gr('rgba(255,255,255,1)','rgba(150,195,255,.8)','rgba(120,170,255,.5)'),gr('rgba(200,228,255,.9)','rgba(100,150,255,.6)','rgba(70,120,255,.35)'),gr('rgba(120,170,255,.7)','rgba(55,100,235,.5)','rgba(40,80,220,.2)')];
+const half=(r,a0,a1)=>{x.beginPath();x.ellipse(0,0,r*R,r*R*.2,0,a0,a1);x.stroke()};
+x.setLineDash([]);x.strokeStyle=G[1];x.lineWidth=R*.11;x.globalAlpha=.07;for(let i=0;i<22;i++)front?half(1.12+i*.17,0,Math.PI):half(1.12+i*.17,Math.PI,2*Math.PI);
+if(front){x.strokeStyle=G[0];x.lineWidth=R*.15;x.globalAlpha=.4;half(1.16,0,Math.PI);x.lineWidth=R*.06;x.globalAlpha=.6;half(1.3,0,Math.PI)}
+else{x.strokeStyle=G[0];x.lineWidth=R*.2;x.globalAlpha=.3;x.beginPath();x.arc(0,0,R*1.2,Math.PI*.88,Math.PI*2.1);x.stroke();x.strokeStyle=G[1];x.lineWidth=R*.1;x.globalAlpha=.4;x.beginPath();x.arc(0,0,R*1.38,Math.PI*.9,Math.PI*2.08);x.stroke()}
+for(const o of or){const k=(o.r-1.1)/3.9;x.strokeStyle=G[k<.25?0:k<.6?1:2];x.lineWidth=o.w*s;x.globalAlpha=o.a*(1-k*.3);x.setLineDash([o.d[0]*s,o.d[1]*s]);x.lineDashOffset=-(o.o+t*120*s/Math.pow(o.r,1.5));
+if(front){half(o.r,0,Math.PI);if(k<.5){x.globalAlpha*=.5;x.beginPath();x.arc(0,0,R*(1.08+k*.55),Math.PI*.1,Math.PI*.9);x.stroke()}}
+else{half(o.r,Math.PI,2*Math.PI);if(k<.75){x.beginPath();x.arc(0,0,R*(1.04+k*.9),Math.PI*.92,Math.PI*2.08);x.stroke()}}}
+x.setLineDash([]);
+if(front){x.strokeStyle='rgba(150,195,255,.5)';x.lineWidth=2*s;x.globalAlpha=.8;x.beginPath();x.arc(0,0,R*1.42,Math.PI*.04,Math.PI*.96);x.stroke();x.lineWidth=1.2*s;x.globalAlpha=.5;x.beginPath();x.arc(0,0,R*1.56,Math.PI*.1,Math.PI*.9);x.stroke()}
+x.globalAlpha=1;x.restore()};
+pass(false);
+x.globalCompositeOperation='source-over';x.fillStyle='#000';x.beginPath();x.arc(cx,cy,R,0,7);x.fill();
+x.globalCompositeOperation='lighter';x.strokeStyle='rgba(110,160,255,.3)';x.lineWidth=8*s;x.beginPath();x.arc(cx,cy,R*1.03,0,7);x.stroke();x.strokeStyle='rgba(225,240,255,.9)';x.lineWidth=1.5*s;x.beginPath();x.arc(cx,cy,R*1.015,0,7);x.stroke();
+pass(true);x.globalCompositeOperation='source-over';
+if(!RM)requestAnimationFrame(loop)}
+loop();})();
+const T=[
+{n:'بریک‌اوت ۲۰ و ۵۵ روزه',w:'ریچارد دنیس و ترتل‌ها',tf:'روزانه · روندی',i:'خرید شکست بالاترین قیمت ۲۰ یا ۵۵ روز گذشته، با این فرض که روندهای بزرگ با شکست محدوده شروع می‌شوند.',e:'ورود روی شکست سقف ۲۰ یا ۵۵ روزه.',s:'حدود ۲ برابر ATR زیر نقطه ورود.',x:'شکست کف ۱۰ روزه (برای ورود ۲۰ روزه) یا کف ۲۰ روزه (برای ۵۵ روزه).',r:'اندازه پوزیشن بر پایه ATR تا ریسک هر معامله حدود ۱٪ شود. بیشتر معامله‌ها ضرر کوچک‌اند و چند برد بزرگ همه را جبران می‌کند.',k:8,p:[40,38,42,40,43,41,44,43,60,70,78,88]},
+{n:'SEPA و الگوی VCP',w:'مارک مینروینی',tf:'روزانه · سهام رشدی',i:'سهمی در روند صعودی قوی که نوسانش در چند موج پیاپی کمتر و حجمش خشک می‌شود، یعنی فروشنده‌ها تمام شده‌اند.',e:'شکست نقطه محوری آخرین انقباض همراه افزایش حجم.',s:'حدود ۵ تا ۸ درصد زیر ورود یا زیر کف انقباض آخر.',x:'خروج بخشی در سود ۲ تا ۳ برابر ریسک و بقیه با میانگین ۵۰ روزه.',r:'سهام باید بالای میانگین‌های ۵۰، ۱۵۰ و ۲۰۰ روزه باشد. اگر حد ضرر خورد، بدون تعصب بیرون بیا.',k:9,p:[30,60,38,64,46,66,54,67,60,69,78,86]},
+{n:'فنجان با دسته',w:'ویلیام اونیل (CAN SLIM)',tf:'روزانه تا هفتگی',i:'بعد از یک رشد، قیمت مثل فنجان اصلاح و برمی‌گردد و یک اصلاح کوچک (دسته) می‌سازد؛ شکست آن شروع حرکت بعدی است.',e:'بالاتر از سقف دسته با حجم بالاتر از میانگین.',s:'حدود ۷ تا ۸ درصد زیر ورود.',x:'سود گرفتن حدود ۲۰ تا ۲۵ درصد، یا ادامه اگر سهم قوی ماند.',r:'سود شرکت و قدرت نسبی سهم هم باید خوب باشد؛ الگو به‌تنهایی کافی نیست.',k:9,p:[80,70,55,45,42,48,60,72,78,74,82,92]},
+{n:'جعبه داروس',w:'نیکولاس داروس',tf:'هفتگی و روزانه',i:'سهمی که به سقف تازه می‌رسد و در یک جعبه قیمتی می‌ماند؛ خروج از بالای جعبه نشانه ادامه قدرت است.',e:'خرید بالای سقف جعبه.',s:'زیر کف جعبه.',x:'جعبه بعدی را بساز و حد ضرر را دنبال کن (تریلینگ).',r:'فقط در بازار کلی صعودی؛ حجم باید همراه شکست زیاد شود.',k:7,p:[40,50,60,66,62,66,63,70,76,72,84,92]},
+{n:'میانگین ۲۰۰ روزه',w:'پال تودور جونز',tf:'روزانه · مدیریت ریسک',i:'تا وقتی قیمت بالای میانگین ۲۰۰ روزه است ریسک را بپذیر؛ زیر آن، کم کن یا کنار بمان. یک قانون مکانیکی ساده برای زنده ماندن.',e:'بالا رفتن دوباره قیمت از میانگین ۲۰۰ روزه.',s:'بسته شدن روزانه زیر آن.',x:'همان بسته شدن زیر میانگین.',r:'در بازار رنج سیگنال‌های دروغ زیاد می‌دهد؛ حجم پوزیشن را کنترل کن.',k:6,p:[70,62,54,46,44,46,52,60,66,72,78,84]},
+{n:'نقطه محوری',w:'جسی لیورمور',tf:'روزانه',i:'صبر برای لحظه‌ای که قیمت از یک مقاومت مهم عبور می‌کند؛ ورود فقط وقتی بازار ثابت کرده که جهت را دارد.',e:'شکست مقاومت با حجم.',s:'کوچک و نزدیک؛ اگر درست نبود سریع خارج.',x:'نشانه‌های خستگی روند و حجم‌های بالا بدون پیشرفت قیمت.',r:'اضافه کردن فقط روی پوزیشن سودده، نه روی ضرر.',k:7,p:[30,44,38,50,44,52,48,54,70,78,74,90]},
+{n:'تعقیب روند',w:'اد سیکوتا',tf:'روزانه تا هفتگی',i:'دنبال کردن روندهای بلند با قوانین ثابت: ضرر کوچک، سود بزرگ، و تکرار بدون هیجان.',e:'شکست کانال یا بالاتر از میانگین بلندمدت.',s:'فاصله‌ای که با نوسان بازار هماهنگ باشد.',x:'شکست کانال پایین یا میانگین متحرک.',r:'سخت‌ترین بخش روانی است: چند ضرر پشت‌سرهم عادی است.',k:5,p:[40,44,42,48,52,58,64,70,68,78,84,92]},
+{n:'هولی گریل',w:'لیندا براشکه',tf:'روزانه و اینتراداگ',i:'در روند قوی (ADX بالای ۳۰) منتظر پولبک تا EMA بیست می‌مانیم و با شکست سقف کندل قبلی وارد می‌شویم.',e:'شکست سقف کندل پولبک به EMA20.',s:'زیر کف پولبک.',x:'نزدیک آخرین سقف یا تریلینگ.',r:'در بازار بدون روند کار نمی‌کند؛ ابتدا شیب روند را بسنج.',k:7,p:[40,52,60,68,62,58,62,66,72,70,80,88]},
+{n:'بریک‌اوت نوسان',w:'لری ویلیامز',tf:'روزانه',i:'بعد از یک روز آرام، دامنه روز قبل را مبنا می‌گیرد و ورود روی شکست درصدی از آن است؛ ایده این است که نوسان به‌زودی منبسط می‌شود.',e:'قیمت باز شدن امروز + درصدی از دامنه دیروز.',s:'حدود نیمی از دامنه دیروز یا بر پایه ATR.',x:'پایان روز یا هدف ثابت.',r:'قوانین را روی داده تاریخی تست کن و هزینه کارمزد را حساب کن.',k:6,p:[50,52,50,53,51,52,54,53,66,72,70,76]},
+{n:'بریک‌اوت بازه افتتاحیه',w:'تُبی کرابل',tf:'اینتراداگ',i:'محدوده ۵ تا ۳۰ دقیقه اول بازار را علامت می‌زنی؛ شکست آن اغلب جهت روز را مشخص می‌کند.',e:'شکست سقف یا کف بازه افتتاحیه.',s:'سمت دیگر بازه.',x:'هدف برابر عرض بازه، یا پایان روز.',r:'در روزهای اخبار ممکن است نوسان وحشتناک شود؛ اندازه را کم کن.',k:6,p:[50,56,52,58,54,57,55,58,70,78,74,82]},
+{n:'VWAP نهادی',w:'میزهای معاملاتی بانک‌ها',tf:'اینتراداگ',i:'نهادها بیشتر سفارش‌هایشان را با VWAP می‌سنجند؛ قیمت در بالای VWAP یعنی خریداران قوی‌تر، و بازگشت به آن اغلب محل خرید است.',e:'برگشت قیمت به VWAP در روند صعودی و کندل برگشتی.',s:'زیر VWAP یا زیر کف نوسان.',x:'سقف روز یا باند بالای انحراف معیار.',r:'برای دارایی‌های کم‌حجم VWAP معنی کمتری دارد.',k:6,p:[50,60,66,62,57,59,63,68,72,70,76,82]},
+{n:'بازتابندگی',w:'جورج سوروس',tf:'ماکرو · بلندمدت',i:'قیمت‌ها فقط واقعیت را نشان نمی‌دهند؛ باور سرمایه‌گذارها هم واقعیت را عوض می‌کند و روندهای خودتقویت‌شونده می‌سازد، تا روزی که می‌شکند.',e:'وقتی روایتی تازه از قیمت پیشی می‌گیرد و هنوز همه نپذیرفته‌اند.',s:'وقتی فرض اصلی غلط شد، حتی با ضرر.',x:'نشانه‌های شکنندگی روایت و تراز اهرم بالا.',r:'ریسک زیاد؛ نیاز به تحلیل ماکرو عمیق و انضباط خروج.',k:5,p:[30,36,44,54,64,76,88,94,90,70,50,38]},
+{n:'تمرکز روی بهترین ایده',w:'استنلی دراکنمیلر',tf:'ماکرو · بلندمدت',i:'تمرکز روی چند ایده با اطمینان بالا و توجه به نقدینگی و سیاست پولی بانک‌های مرکزی؛ ایده خوب را سنگین بزن و ایده بد را زود ببر.',e:'وقتی نقدینگی و روند دارایی هم‌جهت‌اند.',s:'وقتی فرض اصلی (سیاست پولی، تورم) عوض شود.',x:'تغییر جهت نقدینگی یا هدف رسیدن.',r:'تمرکز زیاد یعنی ریسک نوسان بالا؛ فقط با تحقیق و تجربه.',k:4,p:[40,44,52,58,66,72,80,86,84,90,94,98]},
+{n:'پراکندگی همه‌هوا',w:'ری دالیو',tf:'بلندمدت · پورتفوی',i:'ترکیب سهام، اوراق، طلا و کالا بر پایه ریسک تا در هر شرایط رشد و تورم یک بخش کار کند؛ هدف بقا و رشد پایدار است.',e:'تخصیص ثابت و بازتعادل دوره‌ای.',s:'ندارد؛ ریسک با پراکندگی مدیریت می‌شود.',x:'بازتعادل سالانه یا فصلی.',r:'بازده بالا نمی‌دهد، اما افت‌های سنگین را کم می‌کند. هزینه‌ها را کنترل کن.',k:0,p:[50,54,52,58,56,62,60,66,64,70,69,76]}];
+const spark=t=>{const n=t.p.length,X=i=>i*120/(n-1),Y=v=>46-v*.42,pl=t.p.map((v,i)=>X(i).toFixed(1)+','+Y(v).toFixed(1)).join(' '),ey=Y(t.p[t.k]),sy=Math.min(48,ey+10);return `<svg viewBox="0 0 120 50" style="width:100%;max-width:340px;height:90px;margin:10px 0"><polyline points="${pl}" fill="none" stroke="var(--sun)" stroke-width="1.8" stroke-linejoin="round" stroke-linecap="round"/><line x1="${X(t.k)}" x2="120" y1="${sy}" y2="${sy}" stroke="var(--dn)" stroke-dasharray="3 3" stroke-width="1"/><circle cx="${X(t.k)}" cy="${ey}" r="3" fill="#4fd17f"/></svg>`};
+function calc(){const a=+$('#ca').value,r=+$('#cr').value,e=+$('#ce').value,s=+$('#cs').value,o=$('#cres');if(!(a>0&&r>0&&e>0&&s>0&&e!=s)){o.textContent='همه را پر کن (ورود و حد ضرر نباید برابر باشند).';return}const rk=a*r/100,u=Math.abs(e-s),q=rk/u;o.innerHTML='ریسک: <b>'+f(rk)+'</b> · حجم: <b>'+(q>=100?f(q):(Math.round(q*100)/100).toLocaleString('fa-IR'))+'</b> واحد · ارزش پوزیشن: <b>'+f(q*e)+'</b>'}
+function vSetups(){const d=S.tl||{};return `<h2>ستاپ‌های تریدرهای بزرگ</h2><p class="mu">خلاصه آموزشی از روش‌هایی که عمومی شناخته شده‌اند (وال‌استریت، صندوق‌ها، بانک‌ها)، با بازنویسی خودم. توصیه مالی نیست و من مشاور مالی نیستم؛ جزئیات دقیق را در کتاب‌ها و منابع خود هر تریدر بخوان و قبل از پول واقعی روی داده تاریخی و دمو تست کن.</p>
+<div class="card"><h3>ماشین‌حساب اندازه پوزیشن</h3><div class="row"><input id="ca" type="number" placeholder="موجودی حساب" style="width:140px"><input id="cr" type="number" placeholder="ریسک ٪ (مثلا ۱)" style="width:130px"><input id="ce" type="number" placeholder="قیمت ورود" style="width:120px"><input id="cs" type="number" placeholder="حد ضرر" style="width:110px"><button class="btn s" onclick="calc()">حساب کن</button></div><p id="cres" class="mu" style="text-align:center;margin:12px 0 0"></p></div>
+${T.map((t,j)=>`<div class="card"><div class="row" style="justify-content:space-between;align-items:flex-start"><div><h3 style="margin:0 0 4px">${t.n}</h3><div class="mu">${t.w} · ${t.tf}</div></div><label class="mu" style="cursor:pointer"><input type="checkbox" ${d[j]?'checked':''} onchange="(S.tl=S.tl||{})[${j}]=this.checked?1:0;save()" style="accent-color:var(--ac)"> یاد گرفتم</label></div>${spark(t)}<p style="line-height:1.9;margin:4px 0 12px">${t.i}</p><div class="tg"><div><b>ورود</b>${t.e}</div><div><b>حد ضرر</b>${t.s}</div><div><b>خروج</b>${t.x}</div><div><b>نکته ریسک</b>${t.r}</div></div></div>`).join('')}`}
+let tsub='j',tp='w',toff=0;
+const fm=n=>{const a=Math.abs(n);return (n<0?'−':'')+(a>=100?Math.round(a):Math.round(a*100)/100).toLocaleString('fa-IR')};
+const pnlOf=t=>(t.pnl!=null&&t.pnl!=='')?+t.pnl:((t.exit-t.entry)*t.qty*(t.dir=='S'?-1:1)-(t.fee||0));
+function tstats(a,b0){const p=a.map(pnlOf),n=p.length,W=p.filter(x=>x>0),L=p.filter(x=>x<0),gp=W.reduce((s,x)=>s+x,0),gl=-L.reduce((s,x)=>s+x,0),net=gp-gl;let eq=b0,pk=b0,dd=0,sw=0,sl=0,cw=0,cl=0;p.forEach(x=>{eq+=x;pk=Math.max(pk,eq);dd=Math.max(dd,pk-eq);if(x>0){cw++;cl=0}else if(x<0){cl++;cw=0}else{cw=0;cl=0}sw=Math.max(sw,cw);sl=Math.max(sl,cl)});
+return{n,w:W.length,l:L.length,wr:n?W.length/n*100:0,lr:n?L.length/n*100:0,gp,gl,net,pf:gl?gp/gl:(gp?Infinity:0),aw:W.length?gp/W.length:0,al:L.length?gl/L.length:0,rr:(L.length&&W.length)?(gp/W.length)/(gl/L.length):0,best:n?Math.max(...p):0,worst:n?Math.min(...p):0,ex:n?net/n:0,dd,sw,sl,b0,b1:b0+net,g:b0>0?net/b0*100:0}}
+function addTr(){const g=i=>$('#'+i).value,sym=g('tsy').trim(),en=+g('ten'),ex=+g('tex'),q=+g('tq'),fe=+g('tfe')||0,pn=g('tpn');if(!sym)return toast('نماد را بنویس');if(pn===''&&!(en>0&&ex>0&&q>0))return toast('ورود، خروج و حجم، یا سود/زیان دستی را وارد کن');
+const d=new Date(g('tdt')+'T'+new Date().toTimeString().slice(0,8));S.tr=S.tr||[];S.tr.push({id:Date.now(),ts:+d||Date.now(),sym,dir:g('tdr'),entry:en,exit:ex,qty:q,fee:fe,setup:g('tsu'),note:g('tno'),pnl:pn===''?null:+pn});save();render();toast('معامله ثبت شد')}
+function exportTr(){const rows=[['date','symbol','dir','entry','exit','qty','fee','setup','pnl','note'],...(S.tr||[]).map(t=>[new Date(t.ts).toISOString().slice(0,10),t.sym,t.dir,t.entry,t.exit,t.qty,t.fee,t.setup,pnlOf(t),(t.note||'').replace(/[\n,]/g,' ')])];const b=new Blob(['\ufeff'+rows.map(r=>r.join(',')).join('\n')],{type:'text/csv'}),a=document.createElement('a');a.href=URL.createObjectURL(b);a.download='trades.csv';a.click()}
+function vTrade(){const head=`<h2>ترید</h2><div class="row" style="margin-bottom:14px"><div class="seg"><button class="${tsub=='j'?'on':''}" onclick="tsub='j';render()">ژورنال و گزارش</button><button class="${tsub=='s'?'on':''}" onclick="tsub='s';render()">ستاپ‌ها</button></div></div>`;
+if(tsub=='s')return head+vSetups().replace('<h2>','<h3 style="font-size:18px">').replace('</h2>','</h3>');
+const all=(S.tr||[]).slice().sort((a,b)=>a.ts-b.ts),r=range(tp,toff),acc0=+S.acc0||0,b0=acc0+all.filter(t=>t.ts<r.s).reduce((s,t)=>s+pnlOf(t),0),a=all.filter(t=>t.ts>=r.s&&t.ts<r.e),k=tstats(a,b0),c=v=>v>0?'var(--ok)':v<0?'var(--dn)':'var(--tx)';
+const vals=r.bk.map(b=>a.filter(t=>t.ts>=b.s&&t.ts<b.e).reduce((s,t)=>s+pnlOf(t),0)),mx=Math.max(...vals.map(Math.abs),1);
+let eq=b0;const pts=[b0,...a.map(t=>eq+=pnlOf(t))],lo=Math.min(...pts),hi=Math.max(...pts),sp=hi-lo||1,line=pts.map((v,i)=>(i*300/Math.max(1,pts.length-1)).toFixed(1)+','+(72-(v-lo)/sp*64).toFixed(1)).join(' ');
+const sets={};a.forEach(t=>{const n=t.setup||'سایر',o=sets[n]=sets[n]||{n:0,w:0,p:0};o.n++;o.p+=pnlOf(t);if(pnlOf(t)>0)o.w++});
+const st=(l,v,col)=>`<div class="stat"><b style="color:${col||'var(--sun)'}">${v}</b><span>${l}</span></div>`;
+const today=new Date(Date.now()-new Date().getTimezoneOffset()*6e4).toISOString().slice(0,10);
+return head+`<div class="card"><h3>ثبت معامله</h3><div class="row" style="justify-content:flex-start;margin-bottom:8px"><span class="mu">موجودی اولیه حساب:</span><input id="tac" type="number" value="${S.acc0||''}" placeholder="مثلا ۱۰۰۰" style="width:130px" onchange="S.acc0=+this.value;save();render()"></div>
+<div class="row" style="justify-content:flex-start"><input id="tsy" placeholder="نماد (BTCUSDT)" style="width:130px"><select id="tdr"><option value="L">خرید (Long)</option><option value="S">فروش (Short)</option></select><input id="ten" type="number" step="any" placeholder="ورود" style="width:90px"><input id="tex" type="number" step="any" placeholder="خروج" style="width:90px"><input id="tq" type="number" step="any" placeholder="حجم" style="width:90px"><input id="tfe" type="number" step="any" placeholder="کارمزد" style="width:90px"></div>
+<div class="row" style="justify-content:flex-start;margin-top:8px"><input id="tpn" type="number" step="any" placeholder="سود/زیان دستی (اختیاری)" style="width:190px"><select id="tsu"><option value="">ستاپ؟</option>${T.map(t=>`<option>${t.n}</option>`).join('')}<option>سایر</option></select><input id="tdt" type="date" value="${today}"><input id="tno" placeholder="یادداشت" style="flex:1;min-width:120px"><button class="btn s" onclick="addTr()">ثبت</button></div>
+<p class="mu" style="margin:8px 0 0">اگر سود/زیان دستی بنویسی همان حساب می‌شود؛ وگرنه از ورود، خروج، حجم و کارمزد محاسبه می‌شود.</p></div>
+<div class="row" style="margin-bottom:12px"><div class="seg">${[['d','روزانه'],['w','هفتگی'],['m','ماهانه'],['y','سالانه']].map(([q,l])=>`<button class="${tp==q?'on':''}" onclick="tp='${q}';toff=0;render()">${l}</button>`).join('')}</div></div>
+<div class="row" style="justify-content:space-between;margin-bottom:14px"><button class="btn g s" onclick="toff--;render()">قبلی ›</button><b>${r.t}</b><button class="btn g s" onclick="toff++;render()">‹ بعدی</button></div>
+<div class="stats">${st('سود خالص',fm(k.net),c(k.net))}${st('رشد حساب',fm(k.g)+'٪',c(k.g))}${st('تعداد معاملات',f(k.n))}${st('ویناریت',f(k.wr)+'٪',k.wr>=50?'var(--ok)':'var(--dn)')}${st('لوزریت',f(k.lr)+'٪')}${st('معامله سودده / ضررده',f(k.w)+' / '+f(k.l))}${st('مجموع سود',fm(k.gp),'var(--ok)')}${st('مجموع ضرر',fm(-k.gl),'var(--dn)')}${st('پرافیت‌فاکتور',k.pf===Infinity?'∞':(Math.round(k.pf*100)/100).toLocaleString('fa-IR'))}${st('میانگین سود',fm(k.aw),'var(--ok)')}${st('میانگین ضرر',fm(-k.al),'var(--dn)')}${st('نسبت ریوارد به ریسک',(Math.round(k.rr*100)/100).toLocaleString('fa-IR'))}${st('امید ریاضی هر معامله',fm(k.ex),c(k.ex))}${st('بهترین معامله',fm(k.best),'var(--ok)')}${st('بدترین معامله',fm(k.worst),'var(--dn)')}${st('بیشترین افت (Drawdown)',fm(-k.dd),'var(--dn)')}${st('بیشترین برد پیاپی',f(k.sw))}${st('بیشترین باخت پیاپی',f(k.sl))}${st('موجودی اول بازه',fm(k.b0))}${st('موجودی آخر بازه',fm(k.b1),c(k.net))}</div>
+<div class="card"><h3>سود و زیان هر بازه</h3><div class="chart" style="height:200px">${vals.map((v,i)=>`<div class="col" title="${fm(v)}" style="justify-content:flex-start"><div style="flex:1;display:flex;align-items:flex-end;width:100%;justify-content:center"><i style="height:${v>0?v/mx*100:0}%;min-height:0;background:linear-gradient(180deg,#7ff0ad,var(--ok))"></i></div><div style="flex:1;display:flex;align-items:flex-start;width:100%;justify-content:center"><i style="height:${v<0?-v/mx*100:0}%;min-height:0;background:linear-gradient(0deg,#ff9b8c,var(--dn));border-radius:3px 3px 7px 7px"></i></div><small>${r.bk[i].l}</small></div>`).join('')}</div></div>
+<div class="grid"><div class="card"><h3>منحنی رشد حساب</h3>${a.length?`<svg viewBox="0 0 300 80" preserveAspectRatio="none" style="width:100%;height:120px"><polyline points="${line}" fill="none" stroke="${k.net>=0?'var(--ok)':'var(--dn)'}" stroke-width="2" vector-effect="non-scaling-stroke" stroke-linejoin="round"/></svg>`:'<p class="mu">هنوز معامله‌ای در این بازه نیست.</p>'}</div>
+<div class="card"><h3>به تفکیک ستاپ</h3>${Object.keys(sets).map(n=>{const o=sets[n];return `<div class="li"><div class="g">${n}<div class="mu">${f(o.n)} معامله · ویناریت ${f(o.w/o.n*100)}٪</div></div><b style="color:${c(o.p)}">${fm(o.p)}</b></div>`}).join('')||'<p class="mu">داده‌ای نیست.</p>'}</div></div>
+<div class="card"><div class="row" style="justify-content:space-between"><h3 style="margin:0">معامله‌های این بازه</h3><button class="btn g s" onclick="exportTr()">دانلود CSV</button></div>${a.slice().reverse().slice(0,25).map(t=>`<div class="li"><div class="g"><b>${t.sym}</b> <span class="mu">${t.dir=='S'?'فروش':'خرید'} · ${jstr(new Date(t.ts))}${t.setup?' · '+t.setup:''}</span>${t.note?`<div class="mu">${t.note}</div>`:''}</div><b style="color:${c(pnlOf(t))}">${fm(pnlOf(t))}</b><button class="btn g s" onclick="S.tr=S.tr.filter(y=>y.id!=${t.id});save();render()">✕</button></div>`).join('')||'<p class="mu">معامله‌ای ثبت نشده.</p>'}</div>`}
+render();
+</script>
+</body>
+</html>
